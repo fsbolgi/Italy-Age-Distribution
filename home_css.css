@@ -1,0 +1,77 @@
+h1 {
+    text-align: center;
+    font-family: "Segoe UI Black";
+    color: Tomato;
+}
+h2 {
+    text-align: center;
+    font-family: "Segoe UI Black";
+    color: DodgerBlue;
+}
+h3 {
+    text-align:center;
+    font-family: "Segoe UI Black";
+    color: darkgreen;
+}
+
+.header {
+}
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.map {
+    display: flex;
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+}
+.map_img {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+.histogram {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1100px) {
+    .wrap {
+        flex-direction: column;
+    }
+    .map,
+    .histogram {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .map_img{
+        width: 80%;
+    }
+    .timeline {
+        width: 20%;
+    }
+}
+@media (max-width: 610px) {
+    .map_img{
+        width: auto;
+    }
+    .timeline {
+        width: auto;
+    }
+}
