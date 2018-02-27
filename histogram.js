@@ -2,8 +2,6 @@ var age = [20, 40, 60, 80, 100, 120];
 var nPeopleA = [8, 18, 23, 12, 5, 2];
 var nPeopleB = [6, 17, 22, 14, 8, 5];
 
-window.onresize = function(){ location.reload(); } //refresh script on resize
-
 function screen_width() {
     if (window.outerWidth < 640)
         return 350;
@@ -13,7 +11,7 @@ function screen_width() {
 
 ///////// TODO read data from csv
 
-var xScale = d3.scaleLinear()
+var xScale = d3.scale.linear()
     .domain([0, 23])
     .range([0, screen_width()/2-30])
 
@@ -44,9 +42,3 @@ d3.select(".svg_histoB") // where we want to create the histogram
             .style("stroke-width", "1px")
             .style("opacity", .25);
 
-function myFunction() {
-    var w = window.outerWidth;
-    var h = window.outerHeight;
-    var txt = "Window size: width=" + w + ", height=" + h;
-    document.write(txt);
-}

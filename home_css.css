@@ -1,20 +1,14 @@
 h1 {
     text-align: center;
-    /*font-family: "Segoe UI Black";*/
     font-size: x-large;
-    /*color: Tomato;*/
 }
 h2 {
     text-align: center;
-    /*font-family: "Segoe UI Black";*/
-    color: DodgerBlue;
     font-size: large;
 
 }
 h3 {
     text-align:center;
-    /*font-family: "Segoe UI Black";*/
-    color: DodgerBlue;
     font-size: medium;
 }
 
@@ -41,7 +35,6 @@ h3 {
 .svg_map_img {
     width: 500px;
     height: 500px;
-    border: 1px solid;
 }
 .timeline {
     display: flex;
@@ -53,7 +46,6 @@ h3 {
 .svg_time {
     width: 80px;
     height: 500px;
-    border: 1px solid;
 }
 .histogram {
     display: flex;
@@ -66,7 +58,6 @@ h3 {
     display: flex;
     width: 500px;
     height: 500px;
-    border: 1px solid;
 }
 .div_histo svg{
     width: 250px;
