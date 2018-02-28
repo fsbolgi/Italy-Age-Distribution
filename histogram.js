@@ -11,6 +11,11 @@ function screen_width() {
 
 ///////// TODO read data from csv
 
+/*d3.csv("../sample.csv", function(data) {
+    var d = data[0];
+    console.log(d.object());
+});*/
+
 var xScale = d3.scale.linear()
     .domain([0, 23])
     .range([0, screen_width()/2-30])
