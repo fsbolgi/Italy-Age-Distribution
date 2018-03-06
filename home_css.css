@@ -31,11 +31,22 @@ h3 {
     width: 80%;
     justify-content: center;
     align-items: center;
+
 }
 .svg_map_img {
     width: 500px;
     height: 500px;
-    border: 1px solid;
+}
+.subunit {
+    fill: green;
+    stroke: #FFFFFF;
+    opacity: 0.6;
+}
+.subunit-label {
+    fill: #000000;
+    fill-opacity: .4;
+    font-size: xx-small;
+    text-anchor: middle;
 }
 .timeline {
     display: flex;

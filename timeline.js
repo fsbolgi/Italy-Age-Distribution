@@ -1,6 +1,6 @@
 var svg = d3.select(".svg_time"); // select correct svg
 
-if (window.outerWidth < 640) { // compute position of line's ends
+if (window.innerWidth < 640) { // compute position of line's ends
     var points = [[10, 25], [340, 25]];
 } else {
     var points = [[40, 20], [40, 480]];
@@ -58,5 +58,7 @@ function distance (p1, p2) { // compute distance from point and mouse position
 
 var circle = svg.append("circle")
     .attr("transform", "translate(" + points[0] + ")")
-    .attr("r", 7)
+    .attr("fill", "white")
+    .attr("stroke", "black")
+    .attr("r", 8)
     .call(drag);

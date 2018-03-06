@@ -1,9 +1,9 @@
 var age = [20, 40, 60, 80, 100, 120];
-var nPeopleA = [8, 18, 23, 12, 5, 2];
-var nPeopleB = [6, 17, 22, 14, 8, 5];
+var nPeopleA = [8, 18, 30, 23, 12, 5, 2];
+var nPeopleB = [6, 17, 22, 32, 14, 8, 5];
 
 function screen_width() {
-    if (window.outerWidth < 640)
+    if (window.innerWidth < 640)
         return 350;
     else
         return 500;
@@ -16,8 +16,12 @@ function screen_width() {
     console.log(d.object());
 });*/
 
+function getMaxOfArray(numArray) {
+    return Math.max.apply(null, numArray);
+}
+
 var xScale = d3.scale.linear()
-    .domain([0, 23])
+    .domain([0, getMaxOfArray(nPeopleB)])
     .range([0, screen_width()/2-30])
 
 d3.select(".svg_histoA")
@@ -30,8 +34,7 @@ d3.select(".svg_histoA")
             .attr("x", function(d){ return (screen_width()/2-(xScale(d)+20)); })
             .attr("y", function(d, i) { return i * (screen_width())/nPeopleA.length; })
             .style("stroke", "black")
-            .style("stroke-width", "1px")
-            .style("opacity", .25);
+            .style("opacity", .4);
 
 d3.select(".svg_histoB") // where we want to create the histogram
     .selectAll("rect") // select all rectangles (even if not present)
@@ -44,6 +47,5 @@ d3.select(".svg_histoB") // where we want to create the histogram
             .attr("y", function(d, i) { return i * (screen_width())/nPeopleB.length; }) // position on y coord
                         // this function takes as first input the data element and as second the index
             .style("stroke", "black")
-            .style("stroke-width", "1px")
-            .style("opacity", .25);
+            .style("opacity", .4);
 

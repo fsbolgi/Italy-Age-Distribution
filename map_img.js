@@ -1,71 +1,47 @@
 function screen_width() {
-    if (window.outerWidth < 640)
+    if (window.innerWidth < 640)
         return 350;
     else
         return 500;
 }
 
-/*var projection = d3.geoEquirectangular()
-    .scale(screen_width()/7)
-    .translate([screen_width()/2,screen_width()/2]);
+var svg_map = d3.select(".svg_map_img"); // select correct svg
 
-var path = d3.geoPath()
-    .projection(projection);*/
+d3.json("Maps/regTopo.json", function(error, reg) {
+    // read topojson file and calls a function
+    // that takes as input the possible error and the file json itself
+    if (error) return console.error(error); // if file not found print error on console
+    //console.log(reg);
+    //convert from topo to geo for display
+    var subunits = topojson.feature(reg, reg.objects.regions);
 
-var svg1 = d3.select(".svg_map_img");
-
-d3.json("itx.json", function(it) {
+    //projects spherical coordinate to a plane
     var projection = d3.geo.albers()
         .center([0, 41])
         .rotate([347, 0])
         .parallels([35, 45])
-        .scale(screen_width()*5)
-        .translate([screen_width() / 2, screen_width() / 2]);
+        .scale(screen_width()*5.5)
+        .translate([screen_width() / 2, screen_width() / 1.71]);
 
-    var subunits = topojson.feature(it, it.objects.sub);
-
+    //path takes the projection and formats it appropriately
     var path = d3.geo.path()
         .projection(projection);
 
-    // draw border with sea
-    svg1.append("path")
-        .datum(topojson.mesh(it, it.objects.sub, function(a, b) { return a === b ; }))
-        .attr("class", "border_map")
+    // insert the map in the svg
+    svg_map.selectAll(".subunit")
+        .data(subunits.features)
+        .enter()
+        .append("path")
+        .attr("class", function(d) {return "subunit " + d.id; })
         .attr("d", path);
-    // draw all the features together (no different styles)
-    svg1.append("path")
-        .datum(subunits)
-        .attr("class", "map")
-        .attr("d", path);
-    // draw and style any feature at time
-    /*svg.selectAll("path")
-    .data(topojson.feature(it, it.objects.sub).features)
-    .enter().append("path")
-    .attr("class",function(d) { return d.id; })
-    .attr("d",path);*/
-    // draw TORINO border (i.e. the border of a given feature)
-    svg1.append("path")
-        .datum(topojson.mesh(it, it.objects.sub, function(a, b) { return b.id === 'TORINO' || a.id === 'TORINO'; }))
-        .attr("class", "torino_map")
-        .attr("d", path);
+
+    svg_map.selectAll(".subunit-label")
+        .data(subunits.features)
+        .enter().append("text")
+        .attr("class", function(d) { return "subunit-label " + d.id; })
+        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+        .attr("dy", ".35em")
+        .text(function(d) { return d.properties.NOME_REG; });
+
+
 });
-
-/*var graticule = d3.geoGraticule();*/
-
- ////OPTION 1 works for globe
-/*svg.selectAll(".graticule")
-    .data([topojson.object(worldtopo1, worldtopo1.objects.land)])
-    .enter()
-    .append("path")
-    .attr("class", "land")
-    .attr("d", path);*/
-
-/* ////OPTION 2 works for globe
-svg.insert("path", "graticule")
-    .datum(topojson.object(worldtopo1, worldtopo1.objects.land))
-    .attr("class", "land")
-    .attr("d", path);*/ // this one works for globe
-
-/*var json = d3.json("ITA_adm1.json", function(data) {
-    console.log(data[0].object);
-});*/
