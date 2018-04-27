@@ -1,10 +1,6 @@
 var svg = d3.select(".svg_time"); // select correct svg
+var points = [[35, 20], [window.innerWidth -60, 20]];
 
-if (window.innerWidth < 640) { // compute position of line's ends
-    var points = [[10, 25], [340, 25]];
-} else {
-    var points = [[40, 20], [40, 480]];
-}
 
 var line = svg.append("line") // draw line
     .attr("x1", points[0][0])

@@ -1,6 +1,7 @@
 function screen_width() {
     if (window.innerWidth < 640)
-        return 350;
+        //return 350;
+        return 500;
     else
         return 500;
 }
@@ -20,7 +21,7 @@ d3.json("Maps/regTopo.json", function(error, reg) {
         .center([0, 41])
         .rotate([347, 0])
         .parallels([35, 45])
-        .scale(screen_width()*5.5)
+        .scale(screen_width()*5.4)
         .translate([screen_width() / 2, screen_width() / 1.71]);
 
     //path takes the projection and formats it appropriately
@@ -33,15 +34,15 @@ d3.json("Maps/regTopo.json", function(error, reg) {
         .enter()
         .append("path")
         .attr("class", function(d) {return "subunit " + d.id; })
-        .attr("d", path);
-
-    svg_map.selectAll(".subunit-label")
-        .data(subunits.features)
-        .enter().append("text")
-        .attr("class", function(d) { return "subunit-label " + d.id; })
-        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .text(function(d) { return d.properties.NOME_REG; });
-
-
+        .attr("d", path)
+        .on('mouseover', function(d){
+            svg_map.append("text")
+                .text(d.properties.NOME_REG)
+                .attr("transform", "translate(" + path.centroid(d)[0]+", " + (path.bounds(d)[0][1])+ ")")
+                .attr("dy", ".35em")
+                .attr("class", "subunit-label " + d.properties.NOME_REG);
+        })
+        .on('mouseout', function(d){
+            d3.selectAll("text").remove();
+        });
 });

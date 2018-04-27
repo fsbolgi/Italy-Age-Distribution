@@ -4,7 +4,8 @@ var nPeopleB = [6, 17, 22, 32, 14, 8, 5];
 
 function screen_width() {
     if (window.innerWidth < 640)
-        return 350;
+        //return 350;
+        return 500;
     else
         return 500;
 }
@@ -34,7 +35,13 @@ d3.select(".svg_histoA")
             .attr("x", function(d){ return (screen_width()/2-(xScale(d)+20)); })
             .attr("y", function(d, i) { return i * (screen_width())/nPeopleA.length; })
             .style("stroke", "black")
-            .style("opacity", .4);
+            .style("opacity", .5)
+        .on('mouseover', function(d){
+            d3.select(this).style("opacity", .9);
+        })
+        .on('mouseout', function(d){
+            d3.select(this).style("opacity", .5);
+        });
 
 d3.select(".svg_histoB") // where we want to create the histogram
     .selectAll("rect") // select all rectangles (even if not present)
@@ -47,5 +54,11 @@ d3.select(".svg_histoB") // where we want to create the histogram
             .attr("y", function(d, i) { return i * (screen_width())/nPeopleB.length; }) // position on y coord
                         // this function takes as first input the data element and as second the index
             .style("stroke", "black")
-            .style("opacity", .4);
+            .style("opacity", .5)
+        .on('mouseover', function(d){
+            d3.select(this).style("opacity", .9);
+        })
+        .on('mouseout', function(d){
+            d3.select(this).style("opacity", .5);
+        });
 
