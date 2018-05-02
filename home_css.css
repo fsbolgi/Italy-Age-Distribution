@@ -1,17 +1,21 @@
 h1 {
     text-align: center;
-    font-size: x-large;
+    font-size: 24pt;
+    font-family: sans-serif;
+    color: #696630;
 }
 h2 {
     text-align: center;
     font-size: large;
-
+    font-family: sans-serif;
+    color: #696630;
 }
 h3 {
     text-align:center;
     font-size: medium;
+    font-family: sans-serif;
+    color: #696630;
 }
-
 .header {
 }
 .middle {
@@ -32,24 +36,32 @@ h3 {
     width: 500px;
     height: 500px;
 }
-.subunit {
+.regions {
     fill: #008000;
     stroke: #FFFFFF;
     opacity: 0.7;
+    cursor: pointer;
 }
-.subunit:hover {
+.regions:hover {
     opacity: 1;
 }
-.subunit-label {
-    fill: #000000;
-    text-shadow:
-            -0.5px -0.5px 0 #FFFFFF,
-            0.5px -0.5px 0 #FFFFFF,
-            -0.5px 0.5px 0 #FFFFFF,
-            0.5px 0.5px 0 #FFFFFF;
-    font-size: 10pt;
+.regions-label {
+    fill: #464420;
+    font-family: sans-serif;
+    /*text-shadow:
+            -0.3px -0.3px 0 #FFFFFF,
+            0.3px -0.3px 0 #FFFFFF,
+            -0.3px 0.3px 0 #FFFFFF,
+            0.3px 0.3px 0 #FFFFFF;*/
+    font-size: 12pt;
     font-weight: bold;
     text-anchor: middle;
+}
+.current_region {
+    fill: #008000;
+    stroke: #FFFFFF;
+    opacity: 0.7;
+    cursor: pointer;
 }
 .timeline {
     display: flex;
@@ -58,6 +70,7 @@ h3 {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100px;
 }
 .svg_time {
     width: 100%;
@@ -87,7 +100,7 @@ h3 {
     fill: pink ;
 }
 .svg_map_img rect{
-    fill: black ;
+    fill: #696630 ;
 }
 @media (max-width: 1100px) {
     .middle {
