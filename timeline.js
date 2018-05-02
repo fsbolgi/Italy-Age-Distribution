@@ -8,7 +8,7 @@ var line = svg.append("line") // draw line
     .attr("x2", points[1][0])
     .attr("y2", points[1][1])
     .attr("stroke-width", 2)
-    .attr("stroke", "black");
+    .attr("stroke", "#464420");
 
 var path = svg.append("path") // create path along the line
     .datum(points)
@@ -55,6 +55,6 @@ function distance (p1, p2) { // compute distance from point and mouse position
 var circle = svg.append("circle")
     .attr("transform", "translate(" + points[0] + ")")
     .attr("fill", "white")
-    .attr("stroke", "black")
+    .attr("stroke", "#464420")
     .attr("r", 8)
     .call(drag);
