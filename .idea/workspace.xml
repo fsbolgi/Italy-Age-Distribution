@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e52a73d7-7af5-4b03-ab7c-ef1f60262d5c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/map.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/places_hierarchy.js" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/histogram.js" afterPath="$PROJECT_DIR$/histogram.js" />
-      <change beforePath="$PROJECT_DIR$/home.html" afterPath="$PROJECT_DIR$/home.html" />
-      <change beforePath="$PROJECT_DIR$/home_css.css" afterPath="$PROJECT_DIR$/home_css.css" />
-      <change beforePath="$PROJECT_DIR$/map_img.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/timeline.js" afterPath="$PROJECT_DIR$/timeline.js" />
-    </list>
+    <list default="true" id="e52a73d7-7af5-4b03-ab7c-ef1f60262d5c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -171,18 +162,17 @@
       <workItem from="1524593914342" duration="711000" />
       <workItem from="1524646148881" duration="44723000" />
       <workItem from="1525284859791" duration="8335000" />
-      <workItem from="1525343347228" duration="6462000" />
+      <workItem from="1525343347228" duration="7066000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60231000" />
+    <option name="totallyTimeSpent" value="60835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="952" y="0" width="976" height="1038" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22651356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22651356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
