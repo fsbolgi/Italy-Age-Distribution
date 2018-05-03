@@ -10,6 +10,8 @@
     <meta name="author" content="Francesca Sbolgi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='home_css.css'>
+
+
 </head>
 
 <body bgcolor="#f7f6ee">
@@ -21,25 +23,26 @@
     </script> -->
 
     <div class="middle">
-        <div class="map">
-            <!-- <h2>ITALY</h2> -->
-            <svg class="svg_map_img"></svg>
-            <script src="map_img.js"></script>
+        <div class="middle_left">
+            <div class="places_hierarchy">
+                <svg class="places_hierarchy_svg"></svg>
+                <script src="places_hierarchy.js"></script>
+            </div>
+            <div class="map">
+                <svg class="map_svg"></svg>
+                <script src="map.js"></script>
+            </div>
         </div>
-
-        <div class="timeline">
-            <!--  <h3>timeline</h3> -->
-            <svg class="svg_time"></svg>
-            <script src="timeline.js"></script>
-        </div>
-
-        <div class="histogram">
-            <!--  <h2>HISTOGRAM</h2> -->
-            <div class="div_histo">
-                <svg class="svg_histoA"></svg>
-                <svg class="svg_histoB"></svg>
-                </div>
-            <script src="histogram.js"></script>
+        <div class="middle_right">
+            <div class="histogram">
+                <svg class="histoA_svg"></svg>
+                <svg class="histoB_svg"></svg>
+                <script src="histogram.js"></script>
+            </div>
+            <div class="timeline">
+                <svg class="time_svg"></svg>
+                <script src="timeline.js"></script>
+            </div>
         </div>
     </div>
 </body>

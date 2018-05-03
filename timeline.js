@@ -1,8 +1,8 @@
-var svg = d3.select(".svg_time"); // select correct svg
-var points = [[35, 20], [window.innerWidth -60, 20]];
+var svg_time = d3.select(".time_svg"); // select correct svg
+var points = [[35, 20], [585, 20]];
 
 
-var line = svg.append("line") // draw line
+var line = svg_time.append("line") // draw line
     .attr("x1", points[0][0])
     .attr("y1", points[0][1])
     .attr("x2", points[1][0])
@@ -10,7 +10,7 @@ var line = svg.append("line") // draw line
     .attr("stroke-width", 2)
     .attr("stroke", "#464420");
 
-var path = svg.append("path") // create path along the line
+var path = svg_time.append("path") // create path along the line
     .datum(points)
     .attr("d", d3.svg.line());
 
@@ -18,7 +18,7 @@ var drag = d3.behavior.drag() // function for dragging circle
     .on("drag", dragged);
 
 function dragged() {
-    var m = d3.mouse(svg.node()), // get mouse position in svg
+    var m = d3.mouse(svg_time.node()), // get mouse position in svg
         p = closestPoint(path.node(), m); // compute closest point in the path of the mouse position
 
     d3.select(this)
@@ -52,7 +52,7 @@ function distance (p1, p2) { // compute distance from point and mouse position
     return dx * dx + dy * dy;
 }
 
-var circle = svg.append("circle")
+var circle = svg_time.append("circle")
     .attr("transform", "translate(" + points[0] + ")")
     .attr("fill", "white")
     .attr("stroke", "#464420")
