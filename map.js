@@ -1,5 +1,6 @@
 var width = 600; // width and height of the map
 var svg_map = d3.select(".map_svg"); // select correct svg
+var reg_clickable = true;
 
 d3.json("Maps/regTopo.json", create_map); // read topojson file and calls a function
 
@@ -41,28 +42,31 @@ function create_map (error, json_reg) {
         .on("click", region_clicked);
 
     function region_clicked(curr_region) {
-        var bounding_box = path.bounds(curr_region);
-        var box_width = bounding_box[1][0] - bounding_box[0][0],
-            box_height = bounding_box[1][1] - bounding_box[0][1],
-            box_center_x = (bounding_box[0][0] + bounding_box[1][0]) / 2,
-            box_center_y = (bounding_box[0][1] + bounding_box[1][1]) / 2;
-        var scale = .9 / Math.max(box_width / width, box_height / width),
-            translate = [width / 2 - scale * box_center_x, width / 2 - scale * box_center_y];
-        d3.select(this).attr("class", "current_region");
-        svg_map.selectAll(".regions").transition()
-            .duration(700)
-            .attr("transform", "translate(" + [width / 2, width / 1.71] + ")scale(0)")
-            .remove();
+        if (reg_clickable) {
+            reg_clickable = false;
+            var bounding_box = path.bounds(curr_region);
+            var box_width = bounding_box[1][0] - bounding_box[0][0],
+                box_height = bounding_box[1][1] - bounding_box[0][1],
+                box_center_x = (bounding_box[0][0] + bounding_box[1][0]) / 2,
+                box_center_y = (bounding_box[0][1] + bounding_box[1][1]) / 2;
+            var scale = .9 / Math.max(box_width / width, box_height / width),
+                translate = [width / 2 - scale * box_center_x, width / 2 - scale * box_center_y];
+            d3.select(this).attr("class", "current_region");
+            svg_map.selectAll(".regions").transition()
+                .duration(700)
+                .attr("transform", "translate(" + [width / 2, width / 1.71] + ")scale(0)")
+                .remove();
 
-        d3.select(this).transition()
-            .duration(700)//.ease(d)
-            .style("stroke-width", 1.5 / scale + "px")
-            .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-        svg_map.selectAll("text").remove();
-        d3.selectAll(".current_region")
-            .on("mouseover", function (d) {
-            });
-        draw_arrow(curr_region);
+            d3.select(this).transition()
+                .duration(700)//.ease(d)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+            svg_map.selectAll("text").remove();
+            d3.selectAll(".current_region")
+                .on("mouseover", function (d) {
+                });
+            draw_arrow(curr_region);
+        }
     }
 }
 

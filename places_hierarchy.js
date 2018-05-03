@@ -14,12 +14,12 @@ function draw_arrow(region_name){
         .attr("x1", 100)
         .attr("y1", 45)
         .attr("x2", 100)
-        .attr("y2", 180)
+        .attr("y2", 170)
         .attr("stroke-width", 0)
         .attr("stroke", "#696630")
         .transition()
             .duration(700)
-            .attr("stroke-width", 2.5)
+            .attr("stroke-width", 1.7)
         .attr("marker-end","url(#arrow)");
 
     var grp = svg_places.append("g")
@@ -34,7 +34,7 @@ function draw_arrow(region_name){
         .transition()
             .duration(700)
             .style("font-size", function(d) {
-                var min_font = Math.min(16, (200) / this.getComputedTextLength() * 0.6);
+                var min_font = Math.min(16, (200) / this.getComputedTextLength() * 0.55);
                 return min_font + "pt";
             });
 }

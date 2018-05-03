@@ -16,7 +16,7 @@
 
 <body bgcolor="#f7f6ee">
     <div class="header">
-        <h1>AGE DISTRIBUTION</h1>
+        <p>AGE DISTRIBUTION</p>
     </div>
 
     <!-- <script>window.onresize = function(){ location.reload(); } //refresh script on resize
@@ -25,7 +25,17 @@
     <div class="middle">
         <div class="middle_left">
             <div class="places_hierarchy">
-                <svg class="places_hierarchy_svg"></svg>
+                <svg class="places_hierarchy_svg">
+                    <marker id="arrow"
+                            markerWidth="9"
+                            markerHeight="13"
+                            viewBox="0 0 20 20"
+                            refX="13"
+                            refY="0"
+                            orient="auto">
+                        <path d="M0,-5L20,0L0,5" style="fill: #696630;"></path>
+                    </marker>
+                </svg>
                 <script src="places_hierarchy.js"></script>
             </div>
             <div class="map">
