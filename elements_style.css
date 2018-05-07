@@ -1,30 +1,3 @@
-p {
-    text-align: center;
-    font-size: 28pt;
-    font-family: sans-serif;
-    color: #696630;
-}
-.header {
-    background-color: #efeedc;
-    height: 45px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-.middle {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.middle_left {
-    height: 650px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 55%;
-}
 .places_hierarchy {
     display: flex;
     flex-direction: column;
@@ -41,8 +14,9 @@ p {
     font-size: 16pt;
     font-family: sans-serif;
     fill: #696630;
+    cursor: pointer;
 }
-.map {
+.map{
     display: flex;
     width: 80%;
     flex-direction: row;
@@ -53,26 +27,20 @@ p {
     width: 600px;
     height: 600px;
 }
-.regions {
+.regions, .provinces {
     fill: #008000;
     stroke: #FFFFFF;
     opacity: 0.7;
     cursor: pointer;
 }
-.regions:hover {
+.regions:hover, .provinces:hover{
     opacity: 1;
 }
-.regions_label {
+.regions_label,.provinces_label {
     fill: #464420;
     font-family: sans-serif;
-    font-size: 12pt;
+    font-size: 14pt;
     text-anchor: middle;
-}
-.current_region {
-    fill: #008000;
-    stroke: #FFFFFF;
-    opacity: 0.7;
-    cursor: pointer;
 }
 .timeline {
     justify-content: center;
@@ -86,15 +54,6 @@ p {
     order: 2;
     width: 600px;
     height: 40px;
-}
-.middle_right {
-    height: 650px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 43%;
 }
 .histogram {
     display: flex;
@@ -112,15 +71,7 @@ p {
 .histoB_svg rect{
     fill: pink ;
 }
-
-
 @media (max-width: 1250px) {
-    .middle {
-        flex-direction: column;
-    }
-    .middle_left {
-        width: 100%;
-    }
     .timeline{
         order: 1;
     }
