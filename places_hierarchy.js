@@ -25,16 +25,21 @@ function draw_arrow(region_name){
     var grp = svg_places.append("g")
         .attr("transform","translate(100, 200)");
 
-    grp.append("text")
+    var min_font = 0;
+
+    var region_text = grp.append("text")
         .text(region_name.properties.NOME_REG)
         .attr("text-anchor", "middle")
         .attr("dy", ".35em")
         .attr("class", "places_text")
         .style("font-size", 1)
-        .transition()
+        .on("click", function() {
+            d3.select(this).style("font-weight", "bold");
+        });
+    region_text.transition()
             .duration(700)
             .style("font-size", function(d) {
-                var min_font = Math.min(16, (200) / this.getComputedTextLength() * 0.55);
+                min_font = Math.min(16, (200) / this.getComputedTextLength() * 0.55);
                 return min_font + "pt";
             });
 }
