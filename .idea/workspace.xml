@@ -3,43 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e52a73d7-7af5-4b03-ab7c-ef1f60262d5c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Maps/munGeo.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/munTopo.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/provGeo.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/provTopo.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regGeo.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/1/municipalities.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/1/municipalities.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/1/provinces.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/1/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/10/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/11/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/12/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/13/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/14/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/15/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/16/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/17/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/18/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/19/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/2/municipalities.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/2/municipalities.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/2/provinces.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/2/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/20/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/3/municipalities.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/3/municipalities.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/3/provinces.geojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/3/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/4/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/5/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/6/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/7/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/8/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Maps/regions/9/provinces.topojson" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/home.html" afterPath="$PROJECT_DIR$/home.html" />
+      <change beforePath="$PROJECT_DIR$/elements_style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/home.html" afterPath="$PROJECT_DIR$/homepage.html" />
       <change beforePath="$PROJECT_DIR$/map.js" afterPath="$PROJECT_DIR$/map.js" />
-      <change beforePath="$PROJECT_DIR$/places_hierarchy.js" afterPath="$PROJECT_DIR$/places_hierarchy.js" />
+      <change beforePath="$PROJECT_DIR$/page_style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/places_hierarchy.js" afterPath="$PROJECT_DIR$/places_history.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/home.html">
+      <file leaf-file-name="homepage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="37" />
+            <state relative-caret-position="567">
+              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -65,21 +33,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="map.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="62" column="23" lean-forward="false" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+            <state relative-caret-position="525">
+              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="histogram.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/histogram.js">
+      <file leaf-file-name="places_history.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/places_history.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+            <state relative-caret-position="0">
+              <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="elements_style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Stylesheets/elements_style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -119,6 +97,10 @@
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/elements_style.css" />
         <option value="$PROJECT_DIR$/home_style.css" />
+        <option value="$PROJECT_DIR$/Stylesheets/page_style.css" />
+        <option value="$PROJECT_DIR$/homepage.html" />
+        <option value="$PROJECT_DIR$/Stylesheets/elements_style.css" />
+        <option value="$PROJECT_DIR$/places_history.js" />
         <option value="$PROJECT_DIR$/map.js" />
       </list>
     </option>
@@ -199,12 +181,12 @@
       <workItem from="1524646148881" duration="44723000" />
       <workItem from="1525284859791" duration="8335000" />
       <workItem from="1525343347228" duration="11599000" />
-      <workItem from="1525438445544" duration="36510000" />
+      <workItem from="1525438445544" duration="39524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101878000" />
+    <option name="totallyTimeSpent" value="104892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -261,7 +243,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/home.html">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
@@ -279,7 +261,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/places_hierarchy.js">
+    <entry file="file://$PROJECT_DIR$/places_history.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
@@ -295,7 +277,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="48" />
@@ -321,7 +303,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/places_hierarchy.js">
+    <entry file="file://$PROJECT_DIR$/places_history.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
@@ -329,7 +311,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
@@ -362,7 +344,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
@@ -394,6 +376,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -421,14 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/places_hierarchy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="43" column="15" lean-forward="false" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elements_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1533">
@@ -447,27 +422,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/histogram.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+        <state relative-caret-position="714">
+          <caret line="34" column="10" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="34" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stylesheets/page_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stylesheets/elements_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/places_history.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="62" column="23" lean-forward="false" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+        <state relative-caret-position="525">
+          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

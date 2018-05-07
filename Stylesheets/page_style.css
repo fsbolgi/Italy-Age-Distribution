@@ -4,6 +4,9 @@ p {
     font-family: sans-serif;
     color: #696630;
 }
+body {
+    background-color: #f7f6ee;
+}
 .header {
     background-color: #efeedc;
     height: 45px;
