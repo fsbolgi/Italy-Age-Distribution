@@ -1,4 +1,4 @@
-var svg_places = d3.select(".places_hierarchy_svg"); // select correct svg
+var svg_places = d3.select(".places_history_svg"); // select correct svg
 
 var grp = svg_places.append("g")
     .attr("transform","translate(100,20)");
