@@ -27,16 +27,17 @@
     width: 600px;
     height: 600px;
 }
-.regions, .provinces {
+
+.regions, .provinces, .municipalities{
     fill: #008000;
     stroke: #FFFFFF;
     opacity: 0.7;
     cursor: pointer;
 }
-.regions:hover, .provinces:hover{
+.regions:hover, .provinces:hover, .municipalities:hover{
     opacity: 1;
 }
-.regions_label,.provinces_label {
+.regions_label,.provinces_label, .municipalities_label{
     fill: #464420;
     font-family: sans-serif;
     font-size: 14pt;
@@ -67,9 +68,19 @@
 }
 .histoA_svg rect {
     fill: steelblue;
+    opacity: 0.6;
+    stroke: black;
 }
 .histoB_svg rect{
     fill: pink ;
+    opacity: 0.6;
+    stroke: black;
+}
+.histo_label {
+    fill: #464420;
+    font-family: sans-serif;
+    font-size: 12pt;
+    text-anchor: middle;
 }
 @media (max-width: 1250px) {
     .timeline{

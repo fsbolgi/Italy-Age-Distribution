@@ -1,24 +1,29 @@
-p {
-    text-align: center;
-    font-size: 28pt;
-    font-family: sans-serif;
-    color: #696630;
-}
 body {
     background-color: #f7f6ee;
 }
+p {
+    text-align: center;
+    font-family: sans-serif;
+    color: #696630;
+}
 .header {
-    background-color: #efeedc;
     height: 45px;
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+.title {
+    font-size: 30pt;
 }
 .middle {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+.section {
+    background-color: #efeedc;
+    font-size: 13pt;
 }
 .middle_left {
     height: 650px;
