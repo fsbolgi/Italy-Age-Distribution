@@ -43,6 +43,8 @@ function create_map(error, json_el) {
         .attr("d", path_map);
 
     if (level != 0) {
+        d3.select(this).remove(); // remove selected region
+        svg_map.selectAll("text").remove(); // remove selected region name
         scale = scale_map();
         translate = translate_map();
         curr_el.transition() // zooms on the region selected
@@ -83,9 +85,6 @@ function map_clicked(curr_el) {
         draw_arrow(curr_el); // call function in places_history.js to insert arrow and region name
         return;
     }
-    d3.select(this).remove(); // remove selected region
-    svg_map.selectAll("text").remove(); // remove selected region name
-
     svg_map.selectAll("." + array_names[level]).transition() // shrink and then remove the other regions
         .duration(700)
         .attr("transform", "translate(" + translate + ")scale(0)")

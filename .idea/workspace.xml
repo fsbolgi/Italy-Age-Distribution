@@ -3,253 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e52a73d7-7af5-4b03-ab7c-ef1f60262d5c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/10_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/11_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/12_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/13_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/14_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/15_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/16_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/17_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/18_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/19_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/1_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/20_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/2_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/3_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/4_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/5_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/6_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/7_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/8_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/Regions/9_provTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/1/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/1/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/10/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/10/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/100/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/100/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/101/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/101/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/102/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/102/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/103/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/103/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/104/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/104/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/105/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/105/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/106/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/106/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/107/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/107/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/108/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/108/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/109/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/109/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/11/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/11/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/110/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/110/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/12/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/12/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/13/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/13/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/14/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/14/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/15/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/15/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/16/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/16/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/17/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/17/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/18/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/18/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/19/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/19/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/2/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/2/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/20/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/20/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/21/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/21/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/22/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/22/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/23/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/23/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/24/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/24/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/25/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/25/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/26/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/26/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/27/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/27/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/28/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/28/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/29/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/29/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/3/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/3/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/30/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/30/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/31/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/31/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/32/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/32/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/33/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/33/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/34/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/34/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/35/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/35/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/36/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/36/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/37/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/37/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/38/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/38/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/39/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/39/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/4/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/4/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/40/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/40/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/41/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/41/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/42/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/42/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/43/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/43/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/44/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/44/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/45/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/45/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/46/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/46/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/47/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/47/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/48/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/48/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/49/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/49/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/5/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/5/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/50/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/50/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/51/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/51/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/52/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/52/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/53/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/53/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/54/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/54/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/55/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/55/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/56/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/56/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/57/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/57/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/58/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/58/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/59/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/59/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/6/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/6/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/60/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/60/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/61/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/61/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/62/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/62/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/63/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/63/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/64/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/64/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/65/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/65/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/66/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/66/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/67/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/67/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/68/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/68/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/69/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/69/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/7/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/7/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/70/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/70/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/71/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/71/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/72/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/72/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/73/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/73/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/74/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/74/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/75/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/75/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/76/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/76/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/77/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/77/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/78/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/78/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/79/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/79/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/8/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/8/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/80/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/80/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/81/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/81/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/82/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/82/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/83/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/83/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/84/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/84/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/85/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/85/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/86/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/86/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/87/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/87/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/88/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/88/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/89/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/89/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/9/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/9/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/90/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/90/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/91/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/91/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/92/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/92/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/93/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/93/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/94/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/94/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/95/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/95/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/96/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/96/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/97/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/97/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/98/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/98/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/99/municipalities.geojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/provinces/99/municipalities.topojson" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Maps/regTopo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stylesheets/elements_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Stylesheets/elements_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stylesheets/page_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Stylesheets/page_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/histogram.js" beforeDir="false" afterPath="$PROJECT_DIR$/histogram.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/places_history.js" beforeDir="false" afterPath="$PROJECT_DIR$/places_history.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -266,7 +20,7 @@
       <file leaf-file-name="homepage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
+            <state relative-caret-position="17">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -278,8 +32,8 @@
       <file leaf-file-name="map.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/map.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state>
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -333,8 +87,8 @@
         <option value="$PROJECT_DIR$/homepage.html" />
         <option value="$PROJECT_DIR$/Stylesheets/elements_style.css" />
         <option value="$PROJECT_DIR$/places_history.js" />
-        <option value="$PROJECT_DIR$/map.js" />
         <option value="$PROJECT_DIR$/histogram.js" />
+        <option value="$PROJECT_DIR$/map.js" />
       </list>
     </option>
   </component>
@@ -347,10 +101,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -417,15 +172,16 @@
       <workItem from="1525438445544" duration="39588000" />
       <workItem from="1525771990654" duration="19000" />
       <workItem from="1525772090431" duration="4169000" />
-      <workItem from="1525869151144" duration="17756000" />
+      <workItem from="1525869151144" duration="18129000" />
+      <workItem from="1525964310669" duration="243000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126900000" />
+    <option name="totallyTimeSpent" value="127516000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1868476" />
@@ -442,27 +198,27 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1868476" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32963374" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32963374" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -478,6 +234,30 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histogram.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -653,19 +433,7 @@
     <entry file="file://$PROJECT_DIR$/Maps/Regions/1/provTopo.json" />
     <entry file="file://$PROJECT_DIR$/elements_style.css" />
     <entry file="file://$PROJECT_DIR$/page_style.css" />
-    <entry file="file://$PROJECT_DIR$/Maps/regTopo.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Maps/Provinces/1_munTopo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="45" selection-start-column="31" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Maps/0_regTopo.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Maps/Provinces/1_munTopo.json" />
     <entry file="file://$PROJECT_DIR$/Stylesheets/page_style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-34">
@@ -701,13 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/histogram.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
@@ -715,9 +476,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
+        <state relative-caret-position="17">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="n#style#0;n#path#0;n#marker#0;n#svg#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
