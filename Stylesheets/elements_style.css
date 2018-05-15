@@ -9,7 +9,7 @@
     width: 200px;
     height: 600px;
 }
-.places_text{
+.places_text, .places_text_IT {
     text-align: center;
     font-size: 16pt;
     font-family: sans-serif;
@@ -24,10 +24,12 @@
     align-items: center;
 }
 .map_svg {
-    width: 600px;
+    width: 550px;
     height: 600px;
 }
-
+.background_map {
+    fill: transparent;
+}
 .regions, .provinces, .municipalities{
     fill: #008000;
     stroke: #FFFFFF;
@@ -82,7 +84,7 @@
     font-size: 12pt;
     text-anchor: middle;
 }
-@media (max-width: 1250px) {
+@media (max-width: 1200px) {
     .timeline{
         order: 1;
     }
