@@ -9,7 +9,8 @@ var size_svg = 550, // width = height of the map
     translate = [size_svg / 2, size_svg / 1.2],
     previous_el = 0,
     map_label_x = 0,
-    map_label_y = 0;
+    map_label_y = 0,
+    first = true;
 
 var projection_map = d3.geo.albers() //projects spherical coordinate of italy to a plane
     .rotate([347, 0])
@@ -47,6 +48,15 @@ function create_map(error, json_el) {
         })
         .attr("d", path_map);
 
+    if (first) {
+        curr_el.style("opacity", 0);
+
+        curr_el.transition().delay(500)
+            .duration(1000)
+            .style("opacity", 0.7);
+        first = false;
+    }
+
     if (level != 0) {
         d3.select(this).remove(); // remove selected region
         g.selectAll("text").remove(); // remove selected region name
@@ -60,12 +70,14 @@ function create_map(error, json_el) {
     }
     curr_el.on("mouseover", map_hovered)
         .on("mouseout", function () { // remove the name when hovering out of a region
+            d3.select(this).style("opacity", .7);
             g.selectAll("text").remove();
         })
         .on("click", map_clicked); // call function when click on a region
 }
 
 function map_hovered(curr_el) {// when hovering over a region show the name
+    d3.select(this).style("opacity", 1);
     if (level == 0) {
         map_label_x = path_map.centroid(curr_el)[0];
         map_label_y = path_map.bounds(curr_el)[0][1] - 4;
@@ -101,11 +113,11 @@ function map_clicked(curr_el) {
         var box_reg_y = box_reg[0][1];
         console.log(scale);
         console.log("box " + compute_bounding_box(curr_el));
-        console.log((size_svg *scale - size_svg) - compute_bounding_box(previous_el)[2]);
+        console.log((size_svg * scale - size_svg) - compute_bounding_box(previous_el)[2]);
         scale = size_svg * scale_map() * 5.2;
         translate = [box_reg_x, box_reg_y];
-        console.log(box_reg_x*scale);
-        console.log((scale*size_svg-size_svg)/2);
+        console.log(box_reg_x * scale);
+        console.log((scale * size_svg - size_svg) / 2);
 
 
         projection_map = d3.geo.albers() //projects spherical coordinate of italy to a plane
@@ -178,7 +190,7 @@ function map_label_position(curr_el) {
         box = compute_bounding_box(previous_el),
         rect_diff = Math.abs(box[0] - box[1]) / 2;
 
-    (box[0] > box[1])? prov_y = prov_y + rect_diff : prov_x = prov_x + rect_diff;
+    (box[0] > box[1]) ? prov_y = prov_y + rect_diff : prov_x = prov_x + rect_diff;
 
     var x = prov_x * scale + 0.08 * size_svg / 2,
         y = prov_y * scale + 0.08 * size_svg / 2 - 4;
@@ -195,7 +207,7 @@ function zoom_out() {
         prov_y = path_map.bounds(previous_el)[0][1] - 4,
         box = compute_bounding_box(previous_el),
         rect_diff = Math.abs(box[0] - box[1]) / 2;
-    (box[0] > box[1])? prov_y = prov_y - rect_diff : prov_x = prov_x - rect_diff;
+    (box[0] > box[1]) ? prov_y = prov_y - rect_diff : prov_x = prov_x - rect_diff;
 
     g.transition()
         .duration(1000)

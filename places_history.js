@@ -4,11 +4,14 @@ var svg_places = d3.select(".places_history_svg"), // select correct svg
 var grp = svg_places.append("g")
     .attr("transform", "translate(" + x + "," + y + ")");
 
-grp.append("text")
+var ita = grp.append("text")
     .text("ITALIA")
+    .style("fill", "#f7f6ee")
     .attr("text-anchor", "middle")
     .attr("dy", ".35em")
     .attr("class", "places_text_IT");
+
+ita.transition().duration(1000).style("fill", "#696630");
 
 function draw_arrow(el_name, level) {
     var line = svg_places.append("line") // draw line
