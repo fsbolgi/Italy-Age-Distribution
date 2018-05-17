@@ -1,6 +1,3 @@
-var age = [20, 40, 60, 80, 100, 120];
-var nPeopleA = [8, 18, 30, 23, 12, 5, 2];
-var nPeopleB = [6, 17, 22, 32, 14, 8, 5];
 var width = 600;
 var height = 550;
 var svg_histoA = d3.select(".histoA_svg");
@@ -92,9 +89,9 @@ function draw_histo(link, svg_histo, pos) {
                 }
             });
         rect.on('mouseover', function (d) {
-                d3.select(this).style("opacity", 1);
-                return tooltip.style("visibility", "visible");
-            })
+            d3.select(this).style("opacity", 1);
+            return tooltip.style("visibility", "visible");
+        })
             .on('mouseout', function (d) {
                 d3.select(this).style("opacity", .7);
                 return tooltip.style("visibility", "hidden");

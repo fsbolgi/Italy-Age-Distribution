@@ -85,7 +85,7 @@
     justify-content: center;
     align-items: center;
 }
-.histogram svg{
+.histoA_svg, .histoB_svg{
     width: 300px;
     height: 550px;
 }
