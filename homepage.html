@@ -18,24 +18,11 @@
     <div class="header">
         <p class="title">AGE DISTRIBUTION</p>
     </div>
-
-    <!-- <script>window.onresize = function(){ location.reload(); } //refresh script on resize
-    </script> -->
-    <p class="section">Select a place in the map to visualize the correspondent information.</p>
     <div class="middle">
         <div class="middle_left">
             <div class="places_history">
-                <svg class="places_history_svg">
-                    <marker id="arrow"
-                            markerWidth="9"
-                            markerHeight="13"
-                            viewBox="0 0 20 20"
-                            refX="13"
-                            refY="0"
-                            orient="auto">
-                        <path d="M0,-5 L20,0L0,5" style="fill: #696630;"></path>
-                    </marker>
-                </svg>
+                <svg class="places_history_svg"></svg>
+                <script src="magnifier.js"></script>
                 <script src="places_history.js"></script>
             </div>
             <div class="map">
@@ -44,15 +31,15 @@
             </div>
         </div>
         <div class="middle_right">
-            <div class="histogram">
-                <svg class="histoA_svg"></svg>
-                <svg class="histoB_svg"></svg>
-                <script src="histogram.js"></script>
-            </div>
             <div class="timeline">
                 <svg class="time_svg"></svg>
                 <script src="color_scale.js"></script>
                 <script src="timeline.js"></script>
+            </div>
+            <div class="histogram">
+                <svg class="histoA_svg"></svg>
+                <svg class="histoB_svg"></svg>
+                <script src="histogram.js"></script>
             </div>
         </div>
     </div>

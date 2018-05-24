@@ -6,7 +6,39 @@
     border-radius: 2px;
     text-align: left;
     font: 12px sans-serif;
-    opacity: 0.9;
+    opacity: 0.8;
+}
+
+.info_button {
+    r: 9;
+    stroke: #696630;
+    fill: transparent;
+}
+.info_i {
+    fill: #696630;
+    font-family: serif;
+    font-size: 10pt;
+}
+
+.magnifier_circle {
+    r: 9;
+    stroke: #f7f6ee;
+    stroke-width: 3px;
+    fill: transparent;
+}
+.magnifier_line {
+    stroke: #f7f6ee;
+    stroke-width: 3px;
+}
+.magnifier_text {
+    font-family: sans-serif;
+    fill: #f7f6ee;
+    font-size: 10pt;
+    width: 10px;
+}
+.magnifier_area {
+    fill: transparent;
+    cursor: pointer;
 }
 
 .places_history {
@@ -21,11 +53,11 @@
     height: 600px;
 }
 .places_text, .places_text_IT {
-    text-align: center;
-    font-size: 16pt;
+    text-align: right;
+    font-size: 14pt;
     font-family: sans-serif;
+    opacity: 0;
     fill: #696630;
-    cursor: pointer;
 }
 .map{
     display: flex;
@@ -47,9 +79,6 @@
     opacity: 0.7;
     cursor: pointer;
 }
-.regions:hover, .provinces:hover, .municipalities:hover{
-    opacity: 1;
-}
 .regions_label,.provinces_label, .municipalities_label{
     fill: #464420;
     font-family: sans-serif;
@@ -57,15 +86,13 @@
     text-anchor: middle;
 }
 .timeline {
-    justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     width: 600px;
-    height: 50px;
+    height: 70px;
 }
 .time_svg {
-    order: 2;
     width: 600px;
     height: 50px;
 }
@@ -74,10 +101,12 @@
     font-family: sans-serif;
     fill: #696630;
     cursor: pointer;
+    opacity: 0;
 }
 .epoc_label {
     font-size: 10pt;
     font-family: sans-serif;
+    opacity: 0;
 }
 .histogram {
     display: flex;

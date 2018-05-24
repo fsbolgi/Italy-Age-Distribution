@@ -2,14 +2,16 @@ body {
     background-color: #f7f6ee;
 }
 p {
+    margin: 20px;
+    vertical-align: center;
     text-align: center;
     font-family: sans-serif;
     color: #696630;
 }
 .header {
-    height: 70px;
+    background-color: #efeedc;
+    height: 40px;
     width: 100%;
-    justify-content: center;
     align-items: center;
 }
 .title {
