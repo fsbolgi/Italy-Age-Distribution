@@ -1,11 +1,11 @@
 var svg_time = d3.select(".time_svg"); // select correct svg
-var points = [[35, 10], [585, 10]];
+var points = [[35, 10], [582, 10]];
 var line_width = 550;
 var n_ages = 114;
 var ages_array = new Array(114);
 var curr_year = 1952;
 
-for (i = 0; i <=n_ages; i++){
+for (i = 0; i <= n_ages; i++) {
     ages_array[i] = curr_year;
     curr_year++;
 }
@@ -19,11 +19,20 @@ var time_line = svg_time.selectAll("rect")
     .attr("width", line_width / n_ages - 1)
     .attr("height", 15)
     .attr("x", function (d, i) {
-        return points[0][0] + line_width / n_ages *i;
+        return points[0][0] + line_width / n_ages * i;
     })
     .attr("y", points[0][1] + 2)
+    .attr("id", function (d) {
+        return "rect_time_" + d;
+    })
+    .style("fill", "#f7f6ee");
+time_line.transition()
+    .duration(0)
+    .delay(function (d, i) {
+        return 1000 + i * 8;
+    })
     .style("fill", function (d, i) {
-        if (d <1982){
+        if (d < 1982) {
             return color_scale[i];
         } else if (d < 2017) {
             return color_scale[i];
@@ -38,35 +47,53 @@ var past = svg_time.append("text")
     .attr("dy", 10)
     .attr("class", "epoc_label")
     .attr("fill", "orange");
-var present = svg_time.append("text")
+past.transition()
+    .delay(800)
+    .duration(1000)
+    .style("opacity", 1);
+svg_time.append("text")
     .text("PRESENT")
     .attr("dx", 230)
     .attr("dy", 10)
     .attr("class", "epoc_label")
-    .attr("fill", "green");
+    .attr("fill", "green")
+    .transition()
+    .delay(1000)
+    .duration(1000)
+    .style("opacity", 1);
 var future = svg_time.append("text")
     .text("FUTURE")
     .attr("dx", 440)
     .attr("dy", 10)
     .attr("class", "epoc_label")
     .attr("fill", "blue");
+future.transition()
+    .delay(1200)
+    .duration(1000)
+    .style("opacity", 1);
 
-var year_label = svg_time.selectAll("text")
+var years_name = svg_time.selectAll("text")
     .data(ages_array)
     .enter()
     .append("text")
-    .text(function(d){
-        if (d%10==0){
+    .text(function (d) {
+        if (d % 10 == 0) {
             return d;
         } else {
             return "";
         }
     })
-    .attr("dx", function(d, i){
-        return points[0][0]-9 + line_width / n_ages *i;
+    .attr("dx", function (d, i) {
+        return points[0][0] - 9 + line_width / n_ages * i;
     })
     .attr("dy", 40)
     .attr("class", "year_label");
+years_name.transition()
+    .duration(0)
+    .delay(function (d, i) {
+        return 1000 + i * 9;
+    })
+    .style("opacity", 1);
 
 var path = svg_time.append("path") // create path along the line
     .datum(points)
@@ -80,7 +107,13 @@ function dragged() {
         p = closestPoint(path.node(), m); // compute closest point in the path of the mouse position
 
     d3.select(this)
-        .attr("transform", "translate(" + p[0] + "," + p[1] + ")") // move the circle
+        .attr("transform", "translate(" + p[0] + "," + p[1] + ")"); // move the circle
+
+    year_modification = true;
+    var pos = Math.round((p[0] - points[0][0]) * n_ages / line_width) + 1952;
+    set_col_name("A_" + pos);
+    draw_histo(file_nameA, svg_histoA, "left");
+    draw_histo(file_nameB, svg_histoB, "right");
 }
 
 function closestPoint(pathNode, point) { // compute closest point in the path from a point
@@ -111,9 +144,52 @@ function distance(p1, p2) { // compute distance from point and mouse position
 }
 
 var cursor = svg_time.append("rect")
-    .attr("transform", "translate(" + points[0] + ")")
+    .attr("transform", "translate(" + 180 + "," + points[0][1] + ")")
     .attr("fill", "white")
     .attr("stroke", "#696630")
-    .attr("width", line_width / n_ages)
+    .attr("width", line_width / n_ages + 4)
     .attr("height", 20)
-    .call(drag);
+    .style("opacity", 0)
+    .call(drag)
+    .transition()
+    .delay(800)
+    .duration(1000)
+    .style("opacity", 1);
+
+
+function disable_time_section() {
+    time_line.transition()
+        .duration(1000)
+        .style("fill", function (d, i) {
+            if (d < 1982) {
+                return "#e0e0d1";
+            } else if (d < 2017) {
+                return color_scale[i];
+            } else {
+                return "#e0e0d1";
+            }
+        });
+
+    past.transition()
+        .duration(1000)
+        .style("fill", "#e0e0d1");
+    future.transition()
+        .duration(1000)
+        .style("fill", "#e0e0d1");
+    years_name.transition()
+        .duration(1000)
+        .style("fill", function (d, i) {
+            if (d < 1982) {
+                return "#e0e0d1";
+            } else if (d < 2017) {
+                return color_scale[i];
+            } else {
+                return "#e0e0d1";
+            }
+        });
+
+    points = [[180, 10], [339, 10]];
+    path = svg_time.append("path") // create path along the line
+        .datum(points)
+        .attr("d", d3.svg.line());
+}
