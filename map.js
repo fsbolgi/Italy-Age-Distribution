@@ -10,7 +10,15 @@ var size_svg = 550, // width = height of the map
     previous_el = 0,
     map_label_x = 0,
     map_label_y = 0,
-    first = true;
+    first = true,
+    place_selected = false;
+
+var tooltip_map = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden");
 
 var projection_map = d3.geo.albers() //projects spherical coordinate of italy to a plane
     .rotate([347, 0])
@@ -51,7 +59,7 @@ function create_map(error, json_el) {
     if (first) {
         curr_el.style("opacity", 0);
 
-        curr_el.transition().delay(500)
+        curr_el.transition().delay(400)
             .duration(1000)
             .style("opacity", 0.7);
         first = false;
@@ -59,25 +67,35 @@ function create_map(error, json_el) {
 
     if (level != 0) {
         d3.select(this).remove(); // remove selected region
-        g.selectAll("text").remove(); // remove selected region name
         scale = scale_map();
         translate = translate_map();
         curr_el.transition() // zooms on the region selected
-            .duration(1000)
+            .duration(1200)
             .style("stroke-width", 1.5 / scale + "px")
             .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
         el_clickable = true;
     }
     curr_el.on("mouseover", map_hovered)
         .on("mouseout", function () { // remove the name when hovering out of a region
+            if (!place_selected) {
+                d3.select(this).style("opacity", .7);
+            }
             d3.select(this).style("opacity", .7);
-            g.selectAll("text").remove();
+            tooltip_map.style("visibility", "hidden");
+        })
+        .on("mousemove", function (d, i) {
+            tooltip_map.style("top", (event.pageY - 15) + "px")
+                .style("left", (event.pageX + 17) + "px")
+                .style("font-size", 15+"px")
+                .html((extract_properties(d)[0]).toUpperCase());
         })
         .on("click", map_clicked); // call function when click on a region
 }
 
 function map_hovered(curr_el) {// when hovering over a region show the name
-    d3.select(this).style("opacity", 1);
+    if (!place_selected) {
+        d3.select(this).style("opacity", 1);
+    }
     if (level == 0) {
         map_label_x = path_map.centroid(curr_el)[0];
         map_label_y = path_map.bounds(curr_el)[0][1] - 4;
@@ -85,11 +103,8 @@ function map_hovered(curr_el) {// when hovering over a region show the name
         map_label_x = map_label_position(curr_el)[0];
         map_label_y = map_label_position(curr_el)[1];
     }
-    g.append("text")
-        .text((extract_properties(curr_el)[0]).toUpperCase())
-        .attr("dx", map_label_x)
-        .attr("dy", map_label_y)
-        .attr("class", array_names[level] + "_label");
+    d3.select(this).style("opacity", 1);
+    tooltip_map.style("visibility", "visible");
 }
 
 function map_clicked(curr_el) {
@@ -99,15 +114,17 @@ function map_clicked(curr_el) {
     el_clickable = false; // avoid multiple selection
     draw_arrow(curr_el, level); // call function in places_history.js to insert arrow and region name
     if (level == 2) {
+        place_selected = true;
         d3.select(this).style("opacity", 1);
         return;
     }
     g.selectAll("." + array_names[level]).transition() // shrink and then remove the other regions
-        .duration(1000)
-        .attr("transform", "translate(250,250)scale(0)")
+        .duration(800)
+        .style("opacity", 0)
         .remove();
 
     if (level == 1) {
+        disable_time_section();
         var box_reg = path_map.bounds(curr_el);
         var box_reg_x = box_reg[0][0];
         var box_reg_y = box_reg[0][1];
@@ -127,6 +144,14 @@ function map_clicked(curr_el) {
         path_map = d3.geo.path() //path takes the projection and formats it appropriately
             .projection(projection_map);
     }
+
+    year_modification = false;
+    var el_name = extract_properties(curr_el)[0];
+    file_nameA = "Data/Male/" + el_name + ".csv";
+    file_nameB = "Data/Female/" + el_name + ".csv";
+    draw_histo(file_nameA, svg_histoA, "left");
+    draw_histo(file_nameB, svg_histoB, "right");
+
     previous_el = curr_el;
     el_CODE = extract_properties(curr_el)[1];
     level = level + 1;
@@ -203,6 +228,13 @@ function zoom_out() {
         return;
     }
 
+    year_modification = false;
+    file_nameA = "Data/Male/ITALIA.csv";
+    file_nameB = "Data/Female/ITALIA.csv";
+    draw_histo(file_nameA, svg_histoA, "left");
+    draw_histo(file_nameB, svg_histoB, "right");
+
+
     var prov_x = path_map.bounds(previous_el)[0][0] - 4,
         prov_y = path_map.bounds(previous_el)[0][1] - 4,
         box = compute_bounding_box(previous_el),
@@ -220,7 +252,7 @@ function zoom_out() {
         .duration(1050)
         .style("stroke-width", "0px")
         .remove();
-
+    place_selected = false;
     level = 0;
     el_CODE = 0;
     g = svg_map.append("g");
