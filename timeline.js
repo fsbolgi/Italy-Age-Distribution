@@ -1,5 +1,5 @@
 var svg_time = d3.select(".time_svg"); // select correct svg
-var points = [[35, 10], [582, 10]];
+var points = [[35, 30], [582, 10]];
 var line_width = 550;
 var n_ages = 114;
 var ages_array = new Array(114);
@@ -86,7 +86,7 @@ var years_name = svg_time.selectAll("text")
     .attr("dx", function (d, i) {
         return points[0][0] - 9 + line_width / n_ages * i;
     })
-    .attr("dy", 40)
+    .attr("dy", 60)
     .attr("class", "year_label");
 years_name.transition()
     .duration(0)
@@ -106,11 +106,14 @@ function dragged() {
     var m = d3.mouse(svg_time.node()), // get mouse position in svg
         p = closestPoint(path.node(), m); // compute closest point in the path of the mouse position
 
-    d3.select(this)
-        .attr("transform", "translate(" + p[0] + "," + p[1] + ")"); // move the circle
-
-    year_modification = true;
-    var pos = Math.round((p[0] - points[0][0]) * n_ages / line_width) + 1952;
+      year_modification = true;
+    if (level <= 1) {
+        var pos = Math.round((p[0] - points[0][0]) * n_ages / line_width) + 1952;
+    } else {
+        var pos = Math.round((p[0] - points[0][0]) * n_ages / line_width) + 1982;
+    }
+    div_cursor.style('left', p[0] - 16 + "px");
+    text_cursor.text(pos);
     set_col_name("A_" + pos);
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
@@ -143,14 +146,29 @@ function distance(p1, p2) { // compute distance from point and mouse position
     return dx * dx + dy * dy;
 }
 
-var cursor = svg_time.append("rect")
-    .attr("transform", "translate(" + 180 + "," + points[0][1] + ")")
-    .attr("fill", "white")
-    .attr("stroke", "#696630")
-    .attr("width", line_width / n_ages + 4)
-    .attr("height", 20)
+var div_cursor = d3.select('.timeline').append('div')
+    .attr('class', "div_cursor")
     .style("opacity", 0)
-    .call(drag)
+    .style('position','absolute')
+    .style('top', 10 + "px")
+    .style('left', 163 + "px")
+    .style('width', 38 + "px")
+    .style('height', 40 + "px");
+
+var svg_cursor = div_cursor.append("svg")
+    .attr("width", 38 + "px")
+    .attr("height", 40 + "px");
+svg_cursor.append("rect")
+    .attr("transform", "translate(" + 15 + "," + 20 +")")
+    .attr("class", "cursor");
+
+var text_cursor = svg_cursor.append("text")
+    .text("1982")
+    .attr("transform", "translate(" + 3 + "," + 15 +")")
+    .style("fill", "#696630")
+    .style("opacity", 1);
+
+div_cursor.call(drag)
     .transition()
     .delay(800)
     .duration(1000)
@@ -188,7 +206,7 @@ function disable_time_section() {
             }
         });
 
-    points = [[180, 10], [339, 10]];
+    points = [[180, 10], [342, 10]];
     path = svg_time.append("path") // create path along the line
         .datum(points)
         .attr("d", d3.svg.line());

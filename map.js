@@ -11,7 +11,7 @@ var size_svg = 550, // width = height of the map
     map_label_x = 0,
     map_label_y = 0,
     first = true,
-    place_selected = false;
+    mun_selected;
 
 var tooltip_map = d3.select("body")
     .append("div")
@@ -77,10 +77,9 @@ function create_map(error, json_el) {
     }
     curr_el.on("mouseover", map_hovered)
         .on("mouseout", function () { // remove the name when hovering out of a region
-            if (!place_selected) {
+            if (mun_selected != this) {
                 d3.select(this).style("opacity", .7);
             }
-            d3.select(this).style("opacity", .7);
             tooltip_map.style("visibility", "hidden");
         })
         .on("mousemove", function (d, i) {
@@ -93,9 +92,6 @@ function create_map(error, json_el) {
 }
 
 function map_hovered(curr_el) {// when hovering over a region show the name
-    if (!place_selected) {
-        d3.select(this).style("opacity", 1);
-    }
     if (level == 0) {
         map_label_x = path_map.centroid(curr_el)[0];
         map_label_y = path_map.bounds(curr_el)[0][1] - 4;
@@ -113,8 +109,38 @@ function map_clicked(curr_el) {
     }
     el_clickable = false; // avoid multiple selection
     draw_arrow(curr_el, level); // call function in places_history.js to insert arrow and region name
+
+    // update the histogram
+    year_modification = false;
+    var el_name = extract_properties(curr_el)[0];
     if (level == 2) {
-        place_selected = true;
+        var url = "Data/Male/" + el_name + "_mun.csv";
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        if(http.status!=404) {
+            el_name = el_name+"_mun";
+        }
+    }
+    var url = "Data/Male/" + el_name + ".csv";
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if(http.status!=404) {
+        file_nameA = "Data/Male/" + el_name + ".csv";
+        file_nameB = "Data/Female/" + el_name + ".csv";
+        draw_histo(file_nameA, svg_histoA, "left");
+        draw_histo(file_nameB, svg_histoB, "right");
+    } else {
+        svg_map.append("text")
+            .text("DATA NOT FOUND")
+            .attr("transform", "translate(" + 170 + "," + 20 +")")
+            .attr("class", "data_not_found");
+    }
+
+
+    if (level == 2) {
+        mun_selected = this;
         d3.select(this).style("opacity", 1);
         return;
     }
@@ -125,17 +151,15 @@ function map_clicked(curr_el) {
 
     if (level == 1) {
         disable_time_section();
-        var box_reg = path_map.bounds(curr_el);
-        var box_reg_x = box_reg[0][0];
-        var box_reg_y = box_reg[0][1];
-        console.log(scale);
-        console.log("box " + compute_bounding_box(curr_el));
-        console.log((size_svg * scale - size_svg) - compute_bounding_box(previous_el)[2]);
+        var box_width, box_height, box_center_x, box_center_y;
+        [box_width, box_height, box_center_x, box_center_y] = compute_bounding_box(curr_el);
+        //console.log(scale);
+        //console.log("box " + compute_bounding_box(curr_el));
+        //console.log((size_svg * scale - size_svg) - compute_bounding_box(previous_el)[2]);
+        translate = [scale*(size_svg / 2 - box_center_x), scale*(size_svg / 2 - box_center_y)];
         scale = size_svg * scale_map() * 5.2;
-        translate = [box_reg_x, box_reg_y];
-        console.log(box_reg_x * scale);
-        console.log((scale * size_svg - size_svg) / 2);
-
+        //console.log(box_reg_x * scale);
+        //console.log((scale * size_svg - size_svg) / 2);
 
         projection_map = d3.geo.albers() //projects spherical coordinate of italy to a plane
             .rotate([347, 0])
@@ -144,13 +168,6 @@ function map_clicked(curr_el) {
         path_map = d3.geo.path() //path takes the projection and formats it appropriately
             .projection(projection_map);
     }
-
-    year_modification = false;
-    var el_name = extract_properties(curr_el)[0];
-    file_nameA = "Data/Male/" + el_name + ".csv";
-    file_nameB = "Data/Female/" + el_name + ".csv";
-    draw_histo(file_nameA, svg_histoA, "left");
-    draw_histo(file_nameB, svg_histoB, "right");
 
     previous_el = curr_el;
     el_CODE = extract_properties(curr_el)[1];
@@ -252,7 +269,6 @@ function zoom_out() {
         .duration(1050)
         .style("stroke-width", "0px")
         .remove();
-    place_selected = false;
     level = 0;
     el_CODE = 0;
     g = svg_map.append("g");

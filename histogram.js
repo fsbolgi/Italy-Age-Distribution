@@ -3,29 +3,40 @@ var width = 600,
     svg_histoA = d3.select(".histoA_svg"),
     svg_histoB = d3.select(".histoB_svg"),
     start = 2,
+    ages_array = new Array(100),
     year_modification = false;
 
-/*
-    dataset: DCIS_RICPOPRES1971 : popolazione residente ricostruita - Anni 1952-1971 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Età, Sesso(1=M, 2= F), Periodo) -- No Prov e Mun
-    dataset: DCIS_RICPOPRES1981 : popolazione residente ricostruita - Anni 1972-1981 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Età, Sesso(1=M, 2= F), Periodo) -- No Prov e Mun
+for (i = 0; i <= 100; i++) {
+    ages_array[i] = i;
+}
 
-    dataset: DCIS_RICPOPRES1991 : popolazione residente ricostruita - Anni 1982-1991 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Età, Sesso(1=M, 2= F), Periodo) -- All
-    dataset: DCIS_RICPOPRES2001 : popolazione residente ricostruita - Anni 1991-2001 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Età, Sesso(1=M, 2= F), Periodo) -- All
-    dataset: DCIS_RICPOPRES2011 : popolazione residente ricostruita - Anni 2001-2011 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Età, Sesso(1=M, 2= F), Cittadinanza(7=tot), Periodo) -- All
-
-    dataset: DCIS_POPRES1 : popolazione residente al 1 gennaio - Anni 2012 -2017 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Sesso(1=M, 2= F), Età, Sposato(8=tot), Periodo) -- All
-
-    dataset: DCIS_PREVDEM1 : previsioni della popolazione - Anni 2017-2065 - (Territorio, Indicatore demografico(1=popolazione al 1/01), Previsione(5=Mediana), Età, Sesso(1=M, 2= F), Periodo) -- No Prov e Mun
-
-example: period 1952-1971, Territorio=italy, age=zero, sesso=M,
-// http://apistat.istat.it/?q=getdatajsonnuts&dataset=DCIS_RICPOPRES1971&dim=1,1,1,1,0&lang=0
-*/
+var ages_name = svg_histoB.selectAll("text")
+    .data(ages_array)
+    .enter()
+    .append("text")
+    .text(function (d) {
+        if (d % 10 == 0) {
+            return d;
+        } else {
+            return "";
+        }
+    })
+    .attr("dx", 8)
+    .attr("dy", function (d, i) {
+        return 5.3 * i + 17;
+    })
+    .attr("class", "year_label");
+ages_name.transition()
+    .duration(0)
+    .delay(function (d, i) {
+        return 1000 + i * 9;
+    })
+    .style("opacity", 1);
 
 var tooltip = d3.select("body")
     .append("div")
     .attr("class", "tooltip")
     .style("position", "absolute")
-    .style("z-index", "10")
     .style("visibility", "hidden");
 
 var col_name = "A_1982",
@@ -68,12 +79,11 @@ function draw_histo(path_data, svg_histo, pos) {
         }
         col_name = save_col_name;
 
-        console.log(curr_max);
         var xScale = d3.scale.linear()
             .domain([0, curr_max])
             .range([0, width / 2 - 10]);
 
-        var bar_height = (height) / ages_array.length;
+        var bar_height = (height-30) / ages_array.length;
 
         var rect = svg_histo.selectAll("rect")
             .data(data);
@@ -84,13 +94,13 @@ function draw_histo(path_data, svg_histo, pos) {
             .attr("height", bar_height)
             .attr("x", function (d) {
                 if (pos == "left") {
-                    return 290;
+                    return 275;
                 } else {
-                    return 10;
+                    return 40;
                 }
             })
             .attr("y", function (d, i) {
-                return i * (height) / data.length;
+                return i * (height-20) / data.length + 10;
             });
 
         rect.transition()
@@ -105,9 +115,9 @@ function draw_histo(path_data, svg_histo, pos) {
             })
             .attr("x", function (d) {
                 if (pos == "left") {
-                    return (width / 2 - (xScale(d.value) + 5));
+                    return (width / 2 - (xScale(d.value)));
                 } else {
-                    return 5;
+                    return 25;
                 }
             });
         if (!year_modification) {

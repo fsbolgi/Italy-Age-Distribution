@@ -6,7 +6,10 @@ var place = svg_places.append("text")
     .text("ITALIA")
     .attr("dx", x)
     .attr("dy", y)
-    .attr("class", "places_text_IT");
+    .attr("class", "places_text_IT")
+    .on("click", function () {
+        zoom_out();
+    });
 
 place.transition().duration(1000).style("opacity", 1);
 
@@ -28,6 +31,9 @@ function draw_arrow(el_name, level) {
             return min_font + "pt";
         })
         .style("opacity", 1);
+    place.on("click", function () {
+        zoom_out();
+    });
 }
 
 function remove_level() {
