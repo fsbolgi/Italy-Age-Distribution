@@ -8,8 +8,6 @@ var size_svg = 550, // width = height of the map
     scale = size_svg * 5.2,
     translate = [size_svg / 2, size_svg / 1.2],
     previous_el = 0,
-    map_label_x = 0,
-    map_label_y = 0,
     first = true,
     mun_selected;
 
@@ -52,11 +50,17 @@ function create_map(error, json_el) {
         .enter() // what to do on opening
         .append("path")
         .attr("class", function (d) {
-            return array_names[level] + " " + d.id;
+            return array_names[level];
         })
         .attr("d", path_map);
 
-    if (first) {
+    if (level > 1) {
+        curr_el.style("stroke-width", 1.5 / scale + "px")
+            .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+    }
+
+
+    if (first) { // transition to let italy appear
         curr_el.style("opacity", 0);
 
         curr_el.transition().delay(400)
@@ -65,18 +69,21 @@ function create_map(error, json_el) {
         first = false;
     }
 
-    if (level != 0) {
-        d3.select(this).remove(); // remove selected region
+    if (level != 0) { //zoom and center the element selected
         scale = scale_map();
         translate = translate_map();
-        curr_el.transition() // zooms on the region selected
+        curr_el.transition()
             .duration(1200)
             .style("stroke-width", 1.5 / scale + "px")
             .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-        el_clickable = true;
     }
-    curr_el.on("mouseover", map_hovered)
-        .on("mouseout", function () { // remove the name when hovering out of a region
+    el_clickable = true;
+
+    curr_el.on("mouseover", function () {
+        d3.select(this).style("opacity", 1);
+        tooltip_map.style("visibility", "visible");
+    })
+        .on("mouseout", function () {
             if (mun_selected != this) {
                 d3.select(this).style("opacity", .7);
             }
@@ -85,22 +92,10 @@ function create_map(error, json_el) {
         .on("mousemove", function (d, i) {
             tooltip_map.style("top", (event.pageY - 15) + "px")
                 .style("left", (event.pageX + 17) + "px")
-                .style("font-size", 15+"px")
+                .style("font-size", 14 + "px")
                 .html((extract_properties(d)[0]).toUpperCase());
         })
         .on("click", map_clicked); // call function when click on a region
-}
-
-function map_hovered(curr_el) {// when hovering over a region show the name
-    if (level == 0) {
-        map_label_x = path_map.centroid(curr_el)[0];
-        map_label_y = path_map.bounds(curr_el)[0][1] - 4;
-    } else {
-        map_label_x = map_label_position(curr_el)[0];
-        map_label_y = map_label_position(curr_el)[1];
-    }
-    d3.select(this).style("opacity", 1);
-    tooltip_map.style("visibility", "visible");
 }
 
 function map_clicked(curr_el) {
@@ -112,21 +107,21 @@ function map_clicked(curr_el) {
 
     // update the histogram
     year_modification = false;
-    var el_name = extract_properties(curr_el)[0];
+    var el_name = extract_properties(curr_el)[0].toUpperCase();
     if (level == 2) {
         var url = "Data/Male/" + el_name + "_mun.csv";
         var http = new XMLHttpRequest();
         http.open('HEAD', url, false);
         http.send();
-        if(http.status!=404) {
-            el_name = el_name+"_mun";
+        if (http.status != 404) {
+            el_name = el_name + "_mun";
         }
     }
     var url = "Data/Male/" + el_name + ".csv";
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
     http.send();
-    if(http.status!=404) {
+    if (http.status != 404) {
         file_nameA = "Data/Male/" + el_name + ".csv";
         file_nameB = "Data/Female/" + el_name + ".csv";
         draw_histo(file_nameA, svg_histoA, "left");
@@ -134,7 +129,7 @@ function map_clicked(curr_el) {
     } else {
         svg_map.append("text")
             .text("DATA NOT FOUND")
-            .attr("transform", "translate(" + 170 + "," + 20 +")")
+            .attr("transform", "translate(" + 170 + "," + 20 + ")")
             .attr("class", "data_not_found");
     }
 
@@ -144,30 +139,11 @@ function map_clicked(curr_el) {
         d3.select(this).style("opacity", 1);
         return;
     }
+
     g.selectAll("." + array_names[level]).transition() // shrink and then remove the other regions
         .duration(800)
         .style("opacity", 0)
         .remove();
-
-    if (level == 1) {
-        disable_time_section();
-        var box_width, box_height, box_center_x, box_center_y;
-        [box_width, box_height, box_center_x, box_center_y] = compute_bounding_box(curr_el);
-        //console.log(scale);
-        //console.log("box " + compute_bounding_box(curr_el));
-        //console.log((size_svg * scale - size_svg) - compute_bounding_box(previous_el)[2]);
-        translate = [scale*(size_svg / 2 - box_center_x), scale*(size_svg / 2 - box_center_y)];
-        scale = size_svg * scale_map() * 5.2;
-        //console.log(box_reg_x * scale);
-        //console.log((scale * size_svg - size_svg) / 2);
-
-        projection_map = d3.geo.albers() //projects spherical coordinate of italy to a plane
-            .rotate([347, 0])
-            .scale(scale)
-            .translate(translate);
-        path_map = d3.geo.path() //path takes the projection and formats it appropriately
-            .projection(projection_map);
-    }
 
     previous_el = curr_el;
     el_CODE = extract_properties(curr_el)[1];
@@ -226,19 +202,6 @@ function translate_map() {
     return [size_svg / 2 - scale * box[2], size_svg / 2 - scale * box[3]];
 }
 
-function map_label_position(curr_el) {
-    var prov_x = path_map.centroid(curr_el)[0] - path_map.bounds(previous_el)[0][0],
-        prov_y = path_map.bounds(curr_el)[0][1] - path_map.bounds(previous_el)[0][1],
-        box = compute_bounding_box(previous_el),
-        rect_diff = Math.abs(box[0] - box[1]) / 2;
-
-    (box[0] > box[1]) ? prov_y = prov_y + rect_diff : prov_x = prov_x + rect_diff;
-
-    var x = prov_x * scale + 0.08 * size_svg / 2,
-        y = prov_y * scale + 0.08 * size_svg / 2 - 4;
-    return [x, y];
-}
-
 function zoom_out() {
     remove_level();
     if (level == 0) {
@@ -251,9 +214,14 @@ function zoom_out() {
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
 
-
-    var prov_x = path_map.bounds(previous_el)[0][0] - 4,
-        prov_y = path_map.bounds(previous_el)[0][1] - 4,
+    var offset;
+    if (level == 1) {
+        offset = 4;
+    } else {
+        offset = 2;
+    }
+    var prov_x = path_map.bounds(previous_el)[0][0] - offset,
+        prov_y = path_map.bounds(previous_el)[0][1] - offset,
         box = compute_bounding_box(previous_el),
         rect_diff = Math.abs(box[0] - box[1]) / 2;
     (box[0] > box[1]) ? prov_y = prov_y - rect_diff : prov_x = prov_x - rect_diff;
@@ -269,6 +237,12 @@ function zoom_out() {
         .duration(1050)
         .style("stroke-width", "0px")
         .remove();
+    g.selectAll(".municipalities")
+        .transition()
+        .duration(1050)
+        .style("stroke-width", "0px")
+        .remove();
+
     level = 0;
     el_CODE = 0;
     g = svg_map.append("g");

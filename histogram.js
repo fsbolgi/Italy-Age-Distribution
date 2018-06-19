@@ -21,7 +21,15 @@ var ages_name = svg_histoB.selectAll("text")
             return "";
         }
     })
-    .attr("dx", 8)
+    .attr("dx", function (d) {
+        if (d == 0) {
+            return 10;
+        } else if (d == 100) {
+            return 4;
+        }else {
+            return 7;
+        }
+    })
     .attr("dy", function (d, i) {
         return 5.3 * i + 17;
     })
