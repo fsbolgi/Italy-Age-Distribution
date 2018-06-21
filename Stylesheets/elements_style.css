@@ -7,50 +7,63 @@
     text-align: left;
     font: 12px sans-serif;
     opacity: 0.8;
+    position: absolute;
+    visibility: hidden;
 }
-
 .info_button {
-    r: 9;
+    r: 16;
     stroke: #696630;
+    stroke-width: 1.3px;
     fill: transparent;
+    cursor: pointer;
 }
 .info_i {
     fill: #696630;
     font-family: serif;
-    font-size: 10pt;
+    font-size: 16pt;
 }
-
+.group_ages {
+    font-family: sans-serif;
+    fill: #696630;
+    font-size: 10pt;
+    width: 10px;
+    opacity: 0;
+    cursor: pointer;
+}
 .magnifier_circle {
     r: 9;
-    stroke: #f7f6ee;
+    stroke: #696630;
     stroke-width: 3px;
     fill: transparent;
+    opacity: 0;
 }
 .magnifier_line {
-    stroke: #f7f6ee;
+    stroke: #696630;
     stroke-width: 3px;
+    opacity: 0;
 }
 .magnifier_text {
     font-family: sans-serif;
-    fill: #f7f6ee;
+    fill: #696630;
     font-size: 10pt;
     width: 10px;
+    opacity: 0;
 }
 .magnifier_area {
     fill: transparent;
     cursor: pointer;
 }
-
 .places_history {
     display: flex;
     flex-direction: column;
     width: 20%;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
 .places_history_svg {
     width: 200px;
-    height: 600px;
+    height: 650px;
 }
 .places_text, .places_text_IT {
     text-align: right;
@@ -156,12 +169,6 @@
     text-anchor: middle;
 }
 @media (max-width: 1200px) {
-    .timeline{
-        order: 1;
-    }
-    .histogram {
-        order: 2;
-    }
     .histogram_svg svg{
         width: 100%;
         height: 100%;

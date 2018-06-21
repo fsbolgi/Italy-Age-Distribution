@@ -1,21 +1,27 @@
+* {
+    margin:0;
+    padding:0;
+}
 body {
     background-color: #f7f6ee;
 }
 p {
-    margin: 20px;
     vertical-align: center;
-    text-align: center;
+    /*text-align: center;*/
+    margin-left: 30px;
+    line-height: 60px;
     font-family: sans-serif;
     color: #696630;
 }
 .header {
-    background-color: #efeedc;
-    height: 40px;
+    background-color: #e7e5cb;
+    height: 80px;
     width: 100%;
-    align-items: center;
+    vertical-align: center;
+    /*align-items: center;*/
 }
 .title {
-    font-size: 30pt;
+    font-size: 20pt;
 }
 .middle {
     display: flex;
@@ -31,7 +37,7 @@ p {
     height: 650px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     width: 55%;
 }
@@ -43,6 +49,45 @@ p {
     justify-content: center;
     align-items: center;
     width: 43%;
+}
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f7f6ee;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+}
+#text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    right: -10%;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #696630;
+    transform: translate(-50%,-50%);
+}
+a:link {
+    color: #696630;
+    background-color: transparent;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:visited {
+    color: #696630;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: #FFFFFF;
 }
 @media (max-width: 1250px) {
     .middle {
