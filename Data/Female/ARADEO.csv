@@ -94,8 +94,8 @@ ETA,A_1982,A_1983,A_1984,A_1985,A_1986,A_1987,A_1988,A_1989,A_1990,A_1991,A_1992
 92,1,1,1,1,1,1,1,1,1,2,4,2,2,2,2,2,2,3,7,8,2,6,7,3,7,8,9,6,7,10,4,6,6,4,8,8
 93,1,1,1,1,1,1,1,1,1,2,1,3,2,1,1,2,1,2,2,5,8,2,6,7,2,4,6,7,6,4,7,4,6,6,3,5
 94,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,3,1,4,6,2,4,6,2,4,6,7,3,4,5,4,4,5,2
-95,None,None,None,None,None,None,1,None,1,1,1,1,1,2,1,1,1,1,1,2,1,3,4,1,1,5,1,3,5,7,1,3,4,3,1,4
-96,None,None,None,None,None,None,None,None,None,1,None,1,1,1,1,1,1,None,1,1,None,1,3,2,1,1,4,1,2,5,None,1,3,2,3,1
-97,None,None,None,None,None,None,None,None,None,None,None,None,1,1,None,1,None,1,None,1,1,None,1,2,None,1,None,2,1,1,1,None,1,2,None,3
-98,None,None,None,None,None,None,None,None,None,None,None,None,None,1,1,None,None,None,None,None,None,None,None,1,2,None,1,None,1,1,None,None,None,1,2,None
-99,None,None,None,None,None,None,None,None,None,None,None,None,None,None,1,None,None,None,None,None,None,None,None,None,None,None,None,1,None,1,None,None,None,None,None,None
+95,0,0,0,0,0,0,1,0,1,1,1,1,1,2,1,1,1,1,1,2,1,3,4,1,1,5,1,3,5,7,1,3,4,3,1,4
+96,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,0,1,1,0,1,3,2,1,1,4,1,2,5,0,1,3,2,3,1
+97,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1,1,0,1,2,0,1,0,2,1,1,1,0,1,2,0,3
+98,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,2,0,1,0,1,1,0,0,0,1,2,0
+99,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0
