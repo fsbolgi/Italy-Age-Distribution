@@ -1,5 +1,5 @@
 var size_svg = 550, // width = height of the map
-    svg_map = d3.select(".map_svg"), // select correct svg
+    svg_map = d3.select(".map_svg"),
     level = 0,
     el_CODE = 0,
     el_clickable = true,
@@ -47,18 +47,12 @@ function create_map(error, json_el) {
 
     var curr_el = g.selectAll(array_names[level]) // insert the map with the next level of detail in the svg
         .data(element.features) // loop for each region
-        .enter() // what to do on opening
+        .enter()
         .append("path")
         .attr("class", function (d) {
             return array_names[level];
         })
         .attr("d", path_map);
-
-    if (level > 1) {
-        curr_el.style("stroke-width", 1.5 / scale + "px")
-            .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-    }
-
 
     if (first) { // transition to let italy appear
         curr_el.style("opacity", 0);
@@ -69,7 +63,11 @@ function create_map(error, json_el) {
         first = false;
     }
 
-    if (level != 0) { //zoom and center the element selected
+    if (level > 0) { //zoom and center the element selected
+        if (level > 1) { // perform a multiple zoom if it's a province
+            curr_el.style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+        }
         scale = scale_map();
         translate = translate_map();
         curr_el.transition()
@@ -103,36 +101,14 @@ function map_clicked(curr_el) {
         return;
     }
     el_clickable = false; // avoid multiple selection
-    draw_arrow(curr_el, level); // call function in places_history.js to insert arrow and region name
+    write_next_place(curr_el, level); // call function in places_history.js to insert arrow and region name
 
     // update the histogram
-    year_modification = false;
-    var el_name = extract_properties(curr_el)[0].toUpperCase();
-    if (level == 2) {
-        var url = "Data/Male/" + el_name + "_mun.csv";
-        var http = new XMLHttpRequest();
-        http.open('HEAD', url, false);
-        http.send();
-        if (http.status != 404) {
-            el_name = el_name + "_mun";
-        }
-    }
-    var url = "Data/Male/" + el_name + ".csv";
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    if (http.status != 404) {
-        file_nameA = "Data/Male/" + el_name + ".csv";
-        file_nameB = "Data/Female/" + el_name + ".csv";
-        draw_histo(file_nameA, svg_histoA, "left");
-        draw_histo(file_nameB, svg_histoB, "right");
-    } else {
-        svg_map.append("text")
-            .text("DATA NOT FOUND")
-            .attr("transform", "translate(" + 170 + "," + 20 + ")")
-            .attr("class", "data_not_found");
-    }
+    zoom_in_histo(curr_el);
 
+    if (level >= 1) { // for prov and mun disable past and future
+        disable_time_section(true);
+    }
 
     if (level == 2) {
         mun_selected = this;
@@ -149,7 +125,7 @@ function map_clicked(curr_el) {
     el_CODE = extract_properties(curr_el)[1];
     level = level + 1;
 
-    next_level();
+    next_level(); // restart drawing in the place clicked
 }
 
 
@@ -203,7 +179,7 @@ function translate_map() {
 }
 
 function zoom_out() {
-    remove_level();
+    svg_places.selectAll(".places_text").remove();
     if (level == 0) {
         return;
     }
@@ -213,6 +189,10 @@ function zoom_out() {
     file_nameB = "Data/Female/ITALIA.csv";
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
+
+    disable_time_section(false);
+
+    svg_map.selectAll("text").remove();
 
     var offset;
     if (level == 1) {
@@ -227,19 +207,19 @@ function zoom_out() {
     (box[0] > box[1]) ? prov_y = prov_y - rect_diff : prov_x = prov_x - rect_diff;
 
     g.transition()
-        .duration(1000)
+        .duration(1200)
         .style("stroke-width", "1.5px")
         .attr("transform", "translate(" + [prov_x, prov_y] + ")scale(" + 1 / scale + ")")
         .each("end", next_level);
 
     g.selectAll(".provinces")
         .transition()
-        .duration(1050)
+        .duration(1250)
         .style("stroke-width", "0px")
         .remove();
     g.selectAll(".municipalities")
         .transition()
-        .duration(1050)
+        .duration(1250)
         .style("stroke-width", "0px")
         .remove();
 
@@ -248,3 +228,26 @@ function zoom_out() {
     g = svg_map.append("g");
 }
 
+/*key = encodeURI("zoom");
+value = encodeURI("0");
+
+var kvp = document.location.search.substr(1).split('&');
+
+var i = kvp.length;
+var x;
+while (i--) {
+    x = kvp[i].split('=');
+
+    if (x[0] == key) {
+        x[1] = value;
+        kvp[i] = x.join('=');
+        break;
+    }
+}
+
+if (i < 0) {
+    kvp[kvp.length] = [key, value].join('=');
+}
+
+//this will reload the page, it's likely better to store this until finished
+//document.location.search = kvp.join('&');*/
