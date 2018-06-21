@@ -11,40 +11,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Stylesheets/page_style.css">
     <link rel="stylesheet" href="Stylesheets/elements_style.css">
+    <link rel="icon" href="icon.png">
 
 </head>
 
 <body>
-    <div class="header">
-        <p class="title">AGE DISTRIBUTION</p>
+<div id="overlay" onclick="off()">
+    <div id="text">
+        <strong> Hi! <br> I'm Francesca :) </strong><br> <br>
+        I am currently (2018) studying to get my master degree in computer science. This is the project
+        I made for the course of Scientific and Large Data Visualization. It has the purpuse of
+        providing an interactive tool to visualize the distribution of ages across Italy.<br><br>
+
+        The data used was taken from the <a href="https://www.istat.it/">istat</a> database. For the
+        provinces and municipalities are available the data from 1982 to 2017, while for the regions it
+        is also possible to see the reconstructed population from 1952 to 1981 and the forecasts until
+        2065.<br><br>
+
+        It was written using the JavaScript library <a href="https://d3js.org/">D3.js</a> for
+        manipulating documents based on data. D3 allows you to bind arbitrary data to a DOM, and then
+        apply data-driven transformations to create interactive and smooth transitions. <br><br>
+
+        Feel free to check out the <a href="https://github.com/fsbolgi/Italy-D3.js">source code</a>
+        of the project or some of <a href="https://fsbolgi.github.io/">my other works</a>!
     </div>
-    <div class="middle">
-        <div class="middle_left">
-            <div class="places_history">
-                <svg class="places_history_svg"></svg>
-                <script src="magnifier.js"></script>
-                <script src="places_history.js"></script>
-            </div>
-            <div class="map">
-                <svg class="map_svg"></svg>
-                <script src="map.js"></script>
-            </div>
+</div>
+<div class="header">
+    <p class="title">AGE DISTRIBUTION</p>
+</div>
+<div class="middle">
+    <script src="info_tooltip.js"></script>
+    <div class="middle_left">
+        <div class="places_history">
+            <svg class="places_history_svg"></svg>
+            <script src="group_ages.js"></script>
+            <script src="magnifier.js"></script>
+            <script src="places_history.js"></script>
         </div>
-        <div class="middle_right">
-            <div class="timeline">
-                <svg class="time_svg"></svg>
-                <script src="color_scale.js"></script>
-                <script src="timeline.js"></script>
-            </div>
-            <div class="histogram">
-                <svg class="histoA_svg"></svg>
-                <svg class="histoB_svg"></svg>
-                <script src="histogram.js"></script>
-            </div>
+        <div class="map">
+            <svg class="map_svg"></svg>
+            <script src="map.js"></script>
         </div>
     </div>
-    <!-- <p class="section">Compare the data of two different places.</p> -->
-    <!-- <p class="section">Compare the age distribution with other variables.</p> -->
+    <div class="middle_right">
+        <div class="timeline">
+            <svg class="time_svg"></svg>
+            <script src="build_timeline.js"></script>
+            <script src="color_scale.js"></script>
+            <script src="timeline.js"></script>
+        </div>
+        <div class="histogram">
+            <svg class="histoA_svg"></svg>
+            <svg class="histoB_svg"></svg>
+            <script src="histogram_info.js"></script>
+            <script src="histogram.js"></script>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
