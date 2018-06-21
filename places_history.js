@@ -1,6 +1,11 @@
 var svg_places = d3.select(".places_history_svg"), // select correct svg
-    x = 40,
+    x = 30,
     y = 40;
+
+draw_group_ages();
+draw_magnifier();
+
+insert_info_tooltip (svg_places);
 
 var place = svg_places.append("text")
     .text("ITALIA")
@@ -13,9 +18,7 @@ var place = svg_places.append("text")
 
 place.transition().duration(1000).style("opacity", 1);
 
-draw_magnifier();
-
-function draw_arrow(el_name, level) {
+function write_next_place(el_name, level) {
     var min_font = 0;
 
     place = svg_places.append("text")
@@ -34,9 +37,4 @@ function draw_arrow(el_name, level) {
     place.on("click", function () {
         zoom_out();
     });
-}
-
-function remove_level() {
-    svg_places.selectAll(".arrow").remove();
-    svg_places.selectAll(".places_text").remove();
 }
