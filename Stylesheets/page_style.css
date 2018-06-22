@@ -7,7 +7,6 @@ body {
 }
 p {
     vertical-align: center;
-    /*text-align: center;*/
     margin-left: 30px;
     line-height: 60px;
     font-family: sans-serif;
@@ -15,10 +14,11 @@ p {
 }
 .header {
     background-color: #e7e5cb;
-    height: 80px;
-    width: 100%;
     vertical-align: center;
-    /*align-items: center;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .title {
     font-size: 20pt;

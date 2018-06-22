@@ -1,3 +1,16 @@
+.headerA_svg {
+    height: 80px;
+    width: 800px;
+}
+.headerB_svg {
+    height: 80px;
+    width: 600px;
+}
+.header_label {
+    font-family: sans-serif;
+    fill: #696630;
+    font-size: 20pt;
+}
 .tooltip {
     line-height: 1;
     padding: 4px;
@@ -62,12 +75,13 @@
     align-items: center;
 }
 .places_history_svg {
-    width: 200px;
+    width: 300px;
     height: 650px;
+    background-color: #d7d4a8;
 }
 .places_text, .places_text_IT {
     text-align: right;
-    font-size: 14pt;
+    font-size: 11pt;
     font-family: sans-serif;
     opacity: 0;
     fill: #696630;
