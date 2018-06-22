@@ -2,7 +2,7 @@ function draw_group_ages() {
 
     var group_options = [1, 2, 5, 10, 20, 25]; //grouping options
 
-    var options_name = svg_places.selectAll("text") // append grouping values
+    var options_name = svgB_header.selectAll("text") // append grouping values
         .data(group_options)
         .enter()
         .append("text")
@@ -10,10 +10,10 @@ function draw_group_ages() {
             return d;
         })
         .attr("dx", function (d, i) {
-            var x = 30 + i * 20
+            var x = 280 + i * 20
             return (d > 10) ? x + 6 * (i - 3) : x;
         })
-        .attr("dy", 400)
+        .attr("dy", 55)
         .attr("class", "group_ages")
         .attr("id", function (d) {
             return "grp" + d;
@@ -28,10 +28,10 @@ function draw_group_ages() {
         group_ages(d);
     });
 
-    var label_group = svg_places.append("text") // insert grouping label
+    var label_group = svgB_header.append("text") // insert grouping label
         .text("GROUP AGES IN:")
-        .attr("dx", 40)
-        .attr("dy", 370)
+        .attr("dx", 290)
+        .attr("dy", 35)
         .attr("class", "group_ages");
 
     label_group.transition().duration(1000).style("opacity", 1); // on enter label transition

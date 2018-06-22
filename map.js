@@ -101,7 +101,7 @@ function map_clicked(curr_el) {
         return;
     }
     el_clickable = false; // avoid multiple selection
-    write_next_place(curr_el, level); // call function in places_history.js to insert arrow and region name
+    write_next_place(curr_el, level); // call function in little_charts.js to insert arrow and region name
 
     // update the histogram
     zoom_in_histo(curr_el);
@@ -179,7 +179,9 @@ function translate_map() {
 }
 
 function zoom_out() {
-    svg_places.selectAll(".places_text").remove();
+    svgA_header.selectAll(".places_text").remove();
+    place_x = 80;
+
     if (level == 0) {
         return;
     }

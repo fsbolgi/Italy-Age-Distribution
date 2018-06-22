@@ -1,14 +1,14 @@
-function insert_info_tooltip(svg) {
+function insert_info_tooltip() {
 
-    svg.append("text") // draw the icon
+    svgB_header.append("text") // draw the icon
         .text("i")
         .attr("fill", "#f7f6ee")
-        .attr("dx", 82)
-        .attr("dy", 552)
+        .attr("dx", 550)
+        .attr("dy", 52)
         .attr("class", "info_i");
-    svg.append("circle")
-        .attr("cx", 85)
-        .attr("cy", 545)
+    svgB_header.append("circle")
+        .attr("cx", 553)
+        .attr("cy", 45)
         .attr("class", "info_button")
         .on("click", function () {
             on();

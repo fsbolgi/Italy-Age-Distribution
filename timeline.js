@@ -120,21 +120,18 @@ function disable_time_section(disable) {
 
     var pos = document.getElementById("div_cursor").style.left;
     pos = pos.substring(0, pos.length - 2);
-    console.log(pos);
     if (pos > 342) {
         pos = 332;
         text_cursor.text("2017");
         set_col_name("A_2017");
         draw_histo(file_nameA, svg_histoA, "left");
         draw_histo(file_nameB, svg_histoB, "right");
-        console.log(pos);
     } else if (pos < 180) {
         pos = 162;
         text_cursor.text("1982");
         set_col_name("A_1982");
         draw_histo(file_nameA, svg_histoA, "left");
         draw_histo(file_nameB, svg_histoB, "right");
-        console.log(pos);
     }
 
     div_cursor.style('left', pos + "px");
