@@ -6,6 +6,7 @@ var width = 600,
     ages_array = new Array(100),
     year_modification = false,
     group_by = 1,
+    curr_max = 0,
     tooltip_histo;
 
 draw_histo_label();
@@ -31,17 +32,21 @@ function draw_histo(path_data, svg_histo, pos) {
             return d.value;
         });
 
-        var curr_max = compute_max(data);
+        curr_max = compute_max(data);
 
         var xScale = d3.scale.linear()
-            .domain([0, curr_max * group_by])
-            .range([0, width / 2 - 10]);
+            .domain([0, curr_max])
+            .range([0, width / 2 - 45]);
 
         var bar_height = (height - 30) * group_by / ages_array.length;
 
         var mean = compute_mean_age(data, tot_pop);
 
-        var rect = svg_histo.selectAll("rect")
+        if (!year_modification && grid) {
+            create_grid_histo (svg_histo, pos, curr_max, xScale);
+        }
+
+        var rect = svg_histo.selectAll(".rect_histo_"+pos)
             .data(data_grouped);
 
         rect.enter() // insert histogram bars
@@ -53,11 +58,12 @@ function draw_histo(path_data, svg_histo, pos) {
                 } else {
                     return 40;
                 }
-            });
+            })
+            .attr("class", "rect_histo_"+pos); /////////left and right, create css per hover
 
         rect.transition() // transition on enter or on update
             .delay(function (d, i) {
-                return (start > 0) ? (800 + i*7) : 0;
+                return (start > 0) ? (800 + i * 7) : 0;
             })
             .duration(function () {
                 return year_modification ? 100 : 1000;
@@ -138,7 +144,7 @@ function compute_max(data) { // compute the max of the whole file
         }
     }
     col_name = save_col_name;
-    return curr_max;
+    return curr_max * group_by;
 }
 
 function compute_grouping(data) {
@@ -166,6 +172,9 @@ function compute_mean_age(data, tot_pop) {
 function zoom_in_histo(curr_el) {
     year_modification = false;
     var el_name = extract_properties(curr_el)[0].toUpperCase();
+    if (el_name.indexOf("/") != -1) {
+        el_name = el_name.substring(0, el_name.indexOf("/")).trim();
+    }
     if (level == 2) { // if there's a mun with the same name of a province
         var url = "Data/Male/" + el_name + "_mun.csv";
         var http = new XMLHttpRequest();
@@ -190,4 +199,62 @@ function zoom_in_histo(curr_el) {
             .attr("transform", "translate(" + 170 + "," + 20 + ")")
             .attr("class", "data_not_found");
     }
+}
+
+function draw_hover_histo(path_data, svg_histo, pos) {
+    d3.csv(path_data, type, function (error, data) {
+
+        var data_grouped = compute_grouping(data);
+
+        var tot_pop = d3.sum(data, function (d) {
+            return d.value;
+        });
+
+        var xScale = d3.scale.linear()
+            .domain([0, curr_max])
+            .range([0, width / 2 - 45]);
+
+        var bar_height = (height - 30) * group_by / ages_array.length;
+
+        var mean = compute_mean_age(data, tot_pop);
+
+        var rect = svg_histo.selectAll(".rect_hover_histo_"+pos)
+            .data(data_grouped);
+
+        rect.enter() // insert histogram bars
+            .append("rect")
+            .attr("width", 0)
+            .attr("x", function () {
+                if (pos == "left") {
+                    return 300;
+                } else {
+                    return 25;
+                }
+            })
+            .attr("class", "rect_hover_histo_"+pos);
+
+        rect.transition() // transition on enter or on update
+            .duration(function () {
+                return year_modification ? 100 : 500;
+            })
+            .style("fill", function (d, i) {
+                if (i == mean) {
+                    return (pos == "left") ? "#0e1b25" : "#cc0022";
+                }
+            })
+            .attr("width", function (d) {
+                return xScale(d);
+            })
+            .attr("height", bar_height)
+            .attr("x", function (d) {
+                if (pos == "left") {
+                    return (width / 2 - (xScale(d)));
+                } else {
+                    return 25;
+                }
+            })
+            .attr("y", function (d, i) {
+                return i * (height - 20) / data_grouped.length + 10;
+            });
+        });
 }
