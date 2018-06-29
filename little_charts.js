@@ -1,43 +1,50 @@
-var svg_little_charts = d3.select(".places_history_svg"); // select correct svg
 
-var col_name = "A_1982",
-    file_nameA = "Data/Male/ITALIA.csv",
-    file_nameB = "Data/Female/ITALIA.csv",
-    new_borns = new Array(114);
+draw_tot_pop_label();
+draw_tot_pop();
 
-function set_col_name(new_col_name) {
-    col_name = new_col_name;
-}
+draw_n_births_label();
+draw_n_births();
 
-var line = d3.svg.line()
-    .x(function(d) { return x(d[0]); })
-    .y(function(d) { return y(d[1]); });
+draw_grid_onoff();
 
-d3.csv("Data/Male/ITALIA.csv", type, function (error, data) {
-    compute_new_born(data);
+function draw_grid_onoff() {
+    var grid_onoff = svg_little_charts.append("text") // insert grouping label
+        .text("GRID HISTOGRAM:")
+        .attr("dx", 30)
+        .attr("dy", 500)
+        .attr("class", "info_text");
 
-});
+    grid_onoff.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
 
-
-function type(d) {
-    d.value = +d[col_name];
-    return d;
-}
-
-function compute_new_born(data) { // compute the max of the whole file
-    var save_col_name = col_name;
-
-    var cols = d3.keys(data[0]);
-
-    for (i = 1; i < cols.length - 1; i++) {
-        col_name = cols[i];
-        data.forEach(function (d) {
-            d.col = +d[col_name];
+    var grid_on = svg_little_charts.append("text") // insert grouping label
+        .text("ON")
+        .style("font-weight", "bold")
+        .attr("dx", 170)
+        .attr("dy", 500)
+        .attr("class", "text_clickable_grid")
+        .on("click", function () {
+            grid = true;
+            d3.selectAll(".grid_line").style("opacity", 1);
+            d3.selectAll(".grid_label").style("opacity", 1);
+            d3.select(this).style("font-weight", "bold");
+            grid_off.style("font-weight", "normal");
         });
 
-        new_borns[i] = data[0].col;
+    grid_on.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
 
-    }
-    col_name = save_col_name;
+    var grid_off = svg_little_charts.append("text") // insert grouping label
+        .text("OFF")
+        .attr("dx", 200)
+        .attr("dy", 500)
+        .attr("class", "text_clickable_grid")
+        .on("click", function () {
+            grid = false;
+            d3.selectAll(".grid_line").style("opacity", 0);
+            d3.selectAll(".grid_label").style("opacity", 0);
+            d3.select(this).style("font-weight", "bold");
+            grid_on.style("font-weight", "normal");
+        });
+
+    grid_off.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
 }
 
