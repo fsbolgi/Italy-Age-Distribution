@@ -29,13 +29,15 @@
     stroke-width: 1.3px;
     fill: transparent;
     cursor: pointer;
+    opacity: 0;
 }
 .info_i {
     fill: #696630;
     font-family: serif;
     font-size: 16pt;
+    opacity: 0;
 }
-.group_ages {
+.text_clickable_grp, .text_clickable_grid {
     font-family: sans-serif;
     fill: #696630;
     font-size: 10pt;
@@ -55,7 +57,7 @@
     stroke-width: 3px;
     opacity: 0;
 }
-.magnifier_text {
+.info_text {
     font-family: sans-serif;
     fill: #696630;
     font-size: 10pt;
@@ -66,20 +68,38 @@
     fill: transparent;
     cursor: pointer;
 }
-.places_history {
+.little_charts {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 32%;
     height: 100%;
     justify-content: center;
     align-items: center;
 }
-.places_history_svg {
+.little_charts_svg {
     width: 300px;
     height: 650px;
     background-color: #d7d4a8;
 }
-.places_text, .places_text_IT {
+.births_chart, .tot_pop_chart {
+    stroke: #696630;
+    stroke-width: 1.5px;
+}
+.births_x, .births_y, .pop_x, .pop_y{
+    text-anchor: end;
+    font-size: 7pt;
+    font-family: sans-serif;
+    fill: #696630;
+    opacity: 0;
+}
+.index_charts {
+    r: 4;
+    fill: white;
+    stroke: #696630;
+    stroke-width: 1.5px;
+    opacity: 0;
+}
+.places_text {
     text-align: right;
     font-size: 11pt;
     font-family: sans-serif;
@@ -89,7 +109,7 @@
 }
 .map{
     display: flex;
-    width: 80%;
+    width: 65%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -130,7 +150,7 @@
     width: 600px;
     height: 70px;
 }
-.year_label {
+.year_label{
     font-size: 7pt;
     font-family: sans-serif;
     fill: #696630;
@@ -150,6 +170,7 @@
 .cursor {
     fill: white;
     stroke: #696630;
+    stroke-width: 1.2px;
     width: 8px;
     height: 20px;
     cursor: pointer;
@@ -164,25 +185,52 @@
     width: 300px;
     height: 550px;
 }
-.histoA_svg rect {
+.rect_histo_left {
     fill: steelblue;
     opacity: 0.7;
     stroke: #FFFFFF;
     stroke-width: 0.8px;
+    position: absolute;
+    z-index: 1;
 }
-.histoB_svg rect{
+.rect_histo_right {
     fill: pink;
     opacity: 0.7;
     stroke: #FFFFFF;
     stroke-width: 0.8px;
+    position: absolute;
+    z-index: 1;
 }
-.histo_label {
-    fill: #464420;
+.rect_hover_histo_left {
+    fill: #2b506e;
+    opacity: 0.7;
+    stroke: #FFFFFF;
+    stroke-width: 0.8px;
+    position: absolute;
+    z-index: 1;
+}
+.rect_hover_histo_right{
+    fill: #ff6680;
+    opacity: 0.7;
+    stroke: #FFFFFF;
+    stroke-width: 0.8px;
+    position: absolute;
+    z-index: 1;
+}
+.grid_label {
+    fill: #bfba73;
     font-family: sans-serif;
-    font-size: 12pt;
+    font-size: 8pt;
     text-anchor: middle;
+    opacity: 0;
 }
-@media (max-width: 1200px) {
+.grid_line {
+    stroke: #e7e5cb;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+@media (max-width: 1250px) {
     .histogram_svg svg{
         width: 100%;
         height: 100%;

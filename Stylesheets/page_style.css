@@ -38,8 +38,8 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    align-items: center;
-    width: 55%;
+    align-items: left;
+    width: 58%;
 }
 .middle_right {
     height: 650px;
@@ -48,7 +48,7 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 43%;
+    width: 42%;
 }
 #overlay {
     position: fixed;
@@ -89,7 +89,7 @@ a:hover {
 a:active {
     color: #FFFFFF;
 }
-@media (max-width: 1250px) {
+@media (max-width: 1300px) {
     .middle {
         flex-direction: column;
     }
