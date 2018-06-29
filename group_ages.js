@@ -14,7 +14,7 @@ function draw_group_ages() {
             return (d > 10) ? x + 6 * (i - 3) : x;
         })
         .attr("dy", 55)
-        .attr("class", "group_ages")
+        .attr("class", "text_clickable_grp")
         .attr("id", function (d) {
             return "grp" + d;
         });
@@ -22,7 +22,7 @@ function draw_group_ages() {
     d3.select("#grp1").style("font-weight", "bold"); // make group in 1 selected
 
     options_name.on("click", function (d) { // on click change grouping
-        d3.selectAll(".group_ages")
+        d3.selectAll(".text_clickable_grp")
             .style("font-weight", "normal");
         d3.select("#grp" + d).style("font-weight", "bold");
         group_ages(d);
@@ -32,10 +32,10 @@ function draw_group_ages() {
         .text("GROUP AGES IN:")
         .attr("dx", 290)
         .attr("dy", 35)
-        .attr("class", "group_ages");
+        .attr("class", "info_text");
 
-    label_group.transition().duration(1000).style("opacity", 1); // on enter label transition
-    options_name.transition().duration(1000).style("opacity", 1); // on enter values transition
+    label_group.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
+    options_name.transition().delay(500).duration(1000).style("opacity", 1); // on enter values transition
 }
 
 function group_ages(grp) { // redraw the histogram changing the grouping options
