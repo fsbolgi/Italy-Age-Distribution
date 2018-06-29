@@ -8,7 +8,7 @@ var svg_time = d3.select(".time_svg"), // select correct svg
     past,
     future,
     years_name,
-    div_cursor,
+    div_cursor = 0,
     text_cursor;
 
 for (i = 0; i <= n_ages; i++) {
@@ -40,12 +40,16 @@ function dragged() {
         p = closestPoint(path.node(), m); // compute closest point in the path of the mouse position
 
     year_modification = true;
-    var pos = Math.round((p[0] - points[0][0]) * n_ages / line_width);
-    (level <= 1) ? pos = pos + 1952 : pos = pos + 1982;
+    var curr_year = Math.round((p[0] - points[0][0]) * n_ages / line_width);
+    curr_year = (level <= 1) ? curr_year + 1952 : curr_year + 1982;
 
     div_cursor.style('left', p[0] - 16 + "px");
-    text_cursor.text(pos);
-    set_col_name("A_" + pos);
+    text_cursor.text(curr_year);
+
+    move_index_tot_pop(curr_year);
+    move_index_n_births(curr_year);
+
+    set_col_name("A_" + curr_year);
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
 }
