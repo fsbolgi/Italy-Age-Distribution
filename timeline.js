@@ -40,7 +40,7 @@ function dragged() {
         p = closestPoint(path.node(), m); // compute closest point in the path of the mouse position
 
     year_modification = true;
-    var curr_year = Math.round((p[0] - points[0][0]) * n_ages / line_width);
+    curr_year = Math.round((p[0] - points[0][0]) * n_ages / line_width);
     curr_year = (level <= 1) ? curr_year + 1952 : curr_year + 1982;
 
     div_cursor.style('left', p[0] - 16 + "px");
@@ -50,6 +50,8 @@ function dragged() {
     move_index_n_births(curr_year);
 
     set_col_name("A_" + curr_year);
+    compute_mean(curr_el, element.features, 0);
+
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
 }
@@ -81,6 +83,40 @@ function distance(p1, p2) { // compute distance from point and mouse position
     return dx * dx + dy * dy;
 }
 
+d3.select("body") // catch left and right arrow events
+    .on('keydown', function () {
+        var pos = document.getElementById("div_cursor").style.left;
+        pos = Number(pos.substring(0, pos.length - 2));
+        var movement = line_width / n_ages;
+        if (d3.event.key == "ArrowLeft") {
+            year_modification = true;
+            if ((pos - movement) > points[0][0] - 18) {
+                div_cursor.style('left', (pos - movement) + "px");
+                var year = Number(text_cursor[0][0].textContent) - 1;
+                move_index_tot_pop(year);
+                move_index_n_births(year);
+                text_cursor.text(year);
+                set_col_name("A_" + year);
+                compute_mean(curr_el, element.features, 0);
+                draw_histo(file_nameA, svg_histoA, "left");
+                draw_histo(file_nameB, svg_histoB, "right");
+            }
+        } else if (d3.event.key == "ArrowRight") {
+            year_modification = true;
+            if ((pos + movement) < points[1][0] - 16) {
+                div_cursor.style('left', (pos + movement) + "px");
+                var year = Number(text_cursor[0][0].textContent) + 1;
+                move_index_tot_pop(year);
+                move_index_n_births(year);
+                text_cursor.text(year);
+                set_col_name("A_" + year);
+                compute_mean(curr_el, element.features, 0);
+                draw_histo(file_nameA, svg_histoA, "left");
+                draw_histo(file_nameB, svg_histoB, "right");
+            }
+        }
+    });
+
 function disable_time_section(disable) {
     time_line.transition()
         .duration(1000)
@@ -106,7 +142,7 @@ function disable_time_section(disable) {
         .duration(1000)
         .style("fill", function (d, i) {
             if (d < 1982 || d > 2017) {
-                return disable ? "#e0e0d1" : 696630;
+                return disable ? "#e0e0d1" : color_scale[i];
             } else {
                 return color_scale[i];
             }

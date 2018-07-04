@@ -80,7 +80,10 @@ function draw_years_label() {
             return points[0][0] - 9 + line_width / n_ages * i;
         })
         .attr("dy", 60)
-        .attr("class", "year_label");
+        .attr("class", "year_label")
+        .style("fill", function (d, i) {
+            return color_scale[i];
+        });
     years_name.transition()
         .duration(0)
         .delay(function (d, i) {
