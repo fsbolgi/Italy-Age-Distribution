@@ -122,7 +122,7 @@
     fill: transparent;
 }
 .regions, .provinces, .municipalities{
-    fill: #008000;
+    fill: #f7f6ee;
     stroke: #FFFFFF;
     opacity: 0.7;
     cursor: pointer;

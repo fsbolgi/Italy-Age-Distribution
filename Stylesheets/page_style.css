@@ -50,7 +50,7 @@ p {
     align-items: center;
     width: 42%;
 }
-#overlay {
+#overlay, #overlay_lajatico{
     position: fixed;
     display: none;
     width: 100%;
@@ -64,7 +64,17 @@ p {
     z-index: 2;
     cursor: pointer;
 }
-#text{
+#overlay_lajatico{
+    opacity: 0.95;
+}
+.lajatico_svg {
+    width: 100%;
+    height: 100%;
+}
+.bocelli{
+    opacity: 0;
+}
+#text_info, #text_lj{
     position: absolute;
     top: 40%;
     left: 50%;

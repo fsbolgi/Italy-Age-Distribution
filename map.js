@@ -12,7 +12,9 @@ var size_svg = 550, // width = height of the map
     scale_el = 0,
     first = true,
     do_it = false,
-    mun_selected = 0;
+    mun_selected = 0,
+    mean_array,
+    element;
 
 var tooltip_map = d3.select("body")
     .append("div")
@@ -48,16 +50,17 @@ function next_level() {
 
 function create_map(error, json_el) {
     if (error) return console.error(error); // if file not found print error on console
-    var element = topojson.feature(json_el, extract_features(json_el)); //convert from topo to geo for display
+    element = topojson.feature(json_el, extract_features(json_el)); //convert from topo to geo for display
 
-    var curr_el = g.selectAll(array_names[level]) // insert the map with the next level of detail in the svg
+    curr_el = g.selectAll(array_names[level]) // insert the map with the next level of detail in the svg
         .data(element.features) // loop for each region
         .enter()
-        .append("path")
-        .attr("class", function (d) {
-            return array_names[level];
-        })
-        .attr("d", path_map);
+        .append("path");
+    curr_el.attr("class", function (d) {
+        return array_names[level];
+    }).attr("d", path_map);
+
+    compute_mean(curr_el, element.features, 0);
 
     if (first) { // transition to let italy appear
         curr_el.style("opacity", 0);
@@ -139,13 +142,32 @@ function map_clicked(curr_el) {
     }
 
     if (level == 2) {
-        if (mun_selected != 0){
+        if (extract_properties(curr_el)[0].toUpperCase() == "LAJATICO") {
+            var svg_lj = d3.select(".lajatico_svg");
+            var img_ab = svg_lj.append("svg:image")
+                .attr("xlink:href", "Images/bocelli.jpg")
+                .attr("class", "bocelli")
+                .attr("x", 800)
+                .attr("y", 100)
+                .attr("width", 500)
+                .attr("height", 500);
+            var img_glasses = svg_lj.append('svg:image')
+                .attr("xlink:href", "Images/glasses.png")
+                .attr("class", "bocelli")
+                .attr("x", 950)
+                .attr("y", 50)
+                .attr("width", 180)
+                .attr("height", 180);
+            mySound = new sound("thug_song.mp3");
+            mySound.play();
+            on_lajatico();
+            img_ab.transition().delay(10000).duration(500).style("opacity", 1);
+            img_glasses.transition().delay(10000).duration(5000).style("opacity", 1).attr("y", 130);
+        }
+        if (mun_selected != 0) {
             d3.select(mun_selected).style("opacity", 0.7);
-            d3.select("#places_text_3")
+            d3.selectAll("#places_text_3")
                 .transition().duration(1200).style("opacity", 0).remove();
-            d3.select("#places_text_3").each(function (d) {
-                place_x = place_x - this.getComputedTextLength()-9;
-            });
         }
         write_next_place(curr_el, level); // call function in header to insert arrow and region name
         mun_selected = this;
@@ -153,7 +175,6 @@ function map_clicked(curr_el) {
         el_clickable = true; // avoid multiple selection
         return;
     }
-
     write_next_place(curr_el, level); // call function in header to insert arrow and region name
 
     g.selectAll("." + array_names[level]).transition() // shrink and then remove the other regions
@@ -173,7 +194,6 @@ function map_clicked(curr_el) {
 
     next_level(); // restart drawing in the place clicked
 }
-
 
 function extract_features(json_el) {
     switch (level) {
@@ -224,6 +244,83 @@ function translate_map() {
     return [size_svg / 2 - scale * box[2], size_svg / 2 - scale * box[3]];
 }
 
+function compute_mean(curr_place, obj_el, i) {
+    if (i == 0) {
+        mean_array = new Array(obj_el.length);
+    }
+    var name_place = extract_properties(obj_el[i])[0];
+    if (level == 2){
+        console.log(name_place);
+        name_place = name_place+"_mun";
+    }
+    var y = col_name.substring(2, col_name.length);
+
+    if (level > 0 && (y <1982 || y>2017)) {
+        var c = (y < 1982)? "orange": "blue";
+        for (j = 0; j< curr_place[0].length; j++){
+            (curr_place[0][j]).style.setProperty("fill", c);
+        }
+    } else {
+
+        d3.csv("Data/Male/" + name_place + ".csv", type, function (error, dataM) {
+
+            var tot_popM = d3.sum(dataM, function (d) {
+                return d.value;
+            });
+
+            var mean_pop_M = compute_mean_age(dataM, tot_popM);
+
+            d3.csv("Data/Female/" + name_place + ".csv", type, function (error, dataF) {
+
+
+                var tot_popF = d3.sum(dataF, function (d) {
+                    return d.value;
+                });
+
+
+                var mean_pop_F = compute_mean_age(dataF, tot_popF);
+
+
+                mean_array[i] = (mean_pop_M + mean_pop_F) / 2;
+
+                if ((i + 1) == curr_place[0].length) {
+
+                    var min, max;
+                    [min, max] = d3.extent(mean_array, function (d) {
+                        return d;
+                    });
+
+                    var map_color_scale = d3.scale.linear();
+                    map_color_scale.domain([min, max]).interpolate(d3.interpolateHcl);
+
+                    if (y < 1982) {
+                        map_color_scale.range([d3.rgb("#ffcc00"), d3.rgb('#b30000')]);
+                    } else if (y > 2017) {
+                        map_color_scale.range([d3.rgb("#99ccff"), d3.rgb('#000099')]);
+                    } else {
+                        map_color_scale.range([d3.rgb("#99ff33"), d3.rgb('#006600')]);
+                    }
+                    for (j = 0; j < curr_place[0].length; j++) {
+                        (curr_place[0][j]).style.setProperty("fill", map_color_scale(mean_array[j]));
+                    }
+                }
+
+
+                if ((i + 1) < curr_place[0].length) {
+                    compute_mean(curr_place, obj_el, i + 1);
+                }
+            });
+
+        });
+    }
+}
+
+function type(d) {
+    d.value = +d[col_name];
+    return d;
+}
+
+
 function zoom_out(level_clicked) {
     level_clicked = 0; ////////////////////////////////remove just for test
 
@@ -239,13 +336,13 @@ function zoom_out(level_clicked) {
         });
     }
 
-    place_x = place_x - 10;
+    place_x = place_x - 9;
 
     var place_name;
     svgA_header.selectAll(".places_text").filter(function (d, i) {
         if (i === level_clicked) {
             place_name = d3.select(this).text();
-            place_name = place_name.substring(place_name.indexOf(">")+1, place_name.length).trim();
+            place_name = place_name.substring(place_name.indexOf(">") + 1, place_name.length).trim();
         }
     });
 
@@ -255,9 +352,9 @@ function zoom_out(level_clicked) {
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
 
-    draw_n_births();
     draw_tot_pop();
-    disable_time_section(false); ////////////change!
+    draw_n_births();
+    disable_time_section(false);
 
     svg_map.selectAll("text").remove();
 
@@ -270,6 +367,8 @@ function zoom_out(level_clicked) {
     }
 
     if (level_clicked == 0) { // zoom to italy
+        place_x = 60;
+
         var prov_x = path_map.bounds(previous_el)[0][0] - offset,
             prov_y = path_map.bounds(previous_el)[0][1] - offset,
             box = compute_bounding_box(previous_el),
@@ -279,7 +378,7 @@ function zoom_out(level_clicked) {
         g.transition()
             .duration(1200)
             .style("stroke-width", "1.5px")
-            .attr("transform", "translate(" + [prov_x, prov_y] + ")scale(" + 1 / scale  + ")")
+            .attr("transform", "translate(" + [prov_x, prov_y] + ")scale(" + 1 / scale + ")")
             .each("end", next_level);
     } else { // zoom back to province ////////////////////////doesn't work!
         var prov_x = path_map.bounds(previous_el)[0][0] - offset,
@@ -302,7 +401,7 @@ function zoom_out(level_clicked) {
         g.transition()
             .duration(1200)
             .style("stroke-width", "1.5px")
-            .attr("transform", "translate(" + [Math.abs(prov_x-reg_x)*5.2, Math.abs(prov_y-reg_y)*5.2] + ")scale(" + 1 / s + ")")
+            .attr("transform", "translate(" + [Math.abs(prov_x - reg_x) * 5.2, Math.abs(prov_y - reg_y) * 5.2] + ")scale(" + 1 / s + ")")
             .each("end", next_level);
     }
 
