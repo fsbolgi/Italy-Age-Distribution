@@ -34,7 +34,9 @@ function write_next_place(el_name, level) {
         .text("> " + extract_properties(el_name)[0].toUpperCase())
         .attr("dx", function () {
             var x = place_x;
-            place_x = place_x + this.getComputedTextLength();
+            if (level != 2) {
+                place_x = place_x + this.getComputedTextLength();
+            }
             return x;
         })
         .attr("dy", place_y)

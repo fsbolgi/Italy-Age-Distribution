@@ -11,13 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Stylesheets/page_style.css">
     <link rel="stylesheet" href="Stylesheets/elements_style.css">
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="Images/icon.png">
 
 </head>
 
 <body>
 <div id="overlay" onclick="off()">
-    <div id="text">
+    <div id="text_info">
         <strong> Hi! <br> I'm Francesca :) </strong><br> <br>
         I am currently (2018) studying to get my master degree in computer science. This is the project
         I made for the course of Scientific and Large Data Visualization. It has the purpuse of
@@ -36,6 +36,15 @@
         of the project or some of <a href="https://fsbolgi.github.io/">my other works</a>!
     </div>
 </div>
+<div id="overlay_lajatico" onclick="off_lajatico()">
+    <div id="text_lj">
+        <strong>Lajatico</strong>, <br> comune toscano a 45 km da Pisa con
+        1312 abitanti, ha un record:<br> il reddito pro capite più alto
+        d'Italia secondo il Dipartimento delle Finanze. <br>A quanto
+        ammonta? A 45.393 euro.
+    </div>
+    <svg class="lajatico_svg"></svg>
+</div>
 <div class="header">
     <svg class="headerA_svg"></svg>
     <svg class="headerB_svg"></svg>
@@ -43,7 +52,6 @@
     <script src="magnifier.js"></script>
     <script src="group_ages.js"></script>
     <script src="header.js"></script>
-    <!-- <p class="title">AGE DISTRIBUTION</p> -->
 </div>
 <div class="middle">
     <div class="middle_left">

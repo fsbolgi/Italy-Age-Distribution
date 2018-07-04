@@ -11,10 +11,6 @@ var width = 600,
 
 draw_histo_label();
 
-var col_name = "A_1982",
-    file_nameA = "Data/Male/ITALIA.csv",
-    file_nameB = "Data/Female/ITALIA.csv";
-
 draw_histo(file_nameA, svg_histoA, "left");
 draw_histo(file_nameB, svg_histoB, "right");
 
@@ -116,6 +112,11 @@ function draw_histo(path_data, svg_histo, pos) {
                 tooltip_histo.html(tool_string);
             });
     });
+    if (level > 0){
+        draw_skyline("Data/Male/ITALIA.csv", svg_histoA, "left");
+        draw_skyline("Data/Female/ITALIA.csv", svg_histoB, "right");
+    }
+
 }
 
 function type(d) {
@@ -257,4 +258,62 @@ function draw_hover_histo(path_data, svg_histo, pos) {
                 return i * (height - 20) / data_grouped.length + 10;
             });
         });
+}
+
+function draw_skyline(prev_place, svg_histo, pos){
+    d3.csv(prev_place, type, function (error, data) {
+
+        var data_grouped = compute_grouping(data);
+
+        var tot_pop = d3.sum(data, function (d) {
+            return d.value;
+        });
+
+        var xScale = d3.scale.linear()
+            .domain([0, curr_max])
+            .range([0, width / 2 - 45]);
+
+        var bar_height = (height - 30) * group_by / ages_array.length;
+
+        var mean = compute_mean_age(data, tot_pop);
+
+        var rect = svg_histo.selectAll(".rect_hover_histo_"+pos)
+            .data(data_grouped);
+
+        rect.enter() // insert histogram bars
+            .append("rect")
+            .attr("width", 0)
+            .attr("x", function () {
+                if (pos == "left") {
+                    return 300;
+                } else {
+                    return 25;
+                }
+            })
+            .attr("class", "rect_hover_histo_"+pos);
+
+        rect.transition() // transition on enter or on update
+            .duration(function () {
+                return year_modification ? 100 : 500;
+            })
+            .style("fill", function (d, i) {
+                if (i == mean) {
+                    return (pos == "left") ? "#0e1b25" : "#cc0022";
+                }
+            })
+            .attr("width", function (d) {
+                return xScale(d);
+            })
+            .attr("height", bar_height)
+            .attr("x", function (d) {
+                if (pos == "left") {
+                    return (width / 2 - (xScale(d)));
+                } else {
+                    return 25;
+                }
+            })
+            .attr("y", function (d, i) {
+                return i * (height - 20) / data_grouped.length + 10;
+            });
+    });
 }

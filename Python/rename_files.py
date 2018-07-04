@@ -1,0 +1,24 @@
+import glob, os
+
+arr = ['PIEMONTE', "VALLE D'AOSTA", 'LOMBARDIA', 'TRENTINO-ALTO ADIGE', 'VENETO', 'FRIULI-VENEZIA GIULIA', 'LIGURIA',
+       'EMILIA-ROMAGNA', 'TOSCANA', 'UMBRIA', 'MARCHE', 'LAZIO', 'ABRUZZO', 'MOLISE', 'CAMPANIA', 'PUGLIA', 'BASILICATA',
+       'CALABRIA', 'SICILIA', 'SARDEGNA', 'AGRIGENTO', 'ALESSANDRIA', 'ANCONA', 'AOSTA', 'AREZZO', 'ASCOLI PICENO', 'ASTI',
+       'AVELLINO', 'BARI', 'BELLUNO', 'BENEVENTO', 'BERGAMO', 'BIELLA', 'BOLOGNA', 'BOLZANO', 'BRESCIA', 'BRINDISI', 'CAGLIARI',
+       'CALTANISSETTA', 'CAMPOBASSO', 'CASERTA', 'CATANIA', 'CATANZARO', 'CHIETI', 'COMO', 'COSENZA', 'CREMONA', 'CROTONE', 'CUNEO',
+       'ENNA', 'FERRARA', 'FIRENZE', 'FOGGIA', "FORLI'-CESENA", 'FROSINONE', 'GENOVA', 'GORIZIA', 'GROSSETO', 'IMPERIA', 'ISERNIA',
+       'LA SPEZIA', "L'AQUILA", 'LATINA', 'LECCE', 'LECCO', 'LIVORNO', 'LODI', 'LUCCA', 'MACERATA', 'MANTOVA', 'MASSA-CARRARA',
+       'MATERA', 'MESSINA', 'MILANO', 'MODENA', 'NAPOLI', 'NOVARA', 'NUORO', 'ORISTANO', 'PADOVA', 'PALERMO', 'PARMA', 'PAVIA',
+       'PERUGIA', 'PESARO E URBINO', 'PESCARA', 'PIACENZA', 'PISA', 'PISTOIA', 'PORDENONE', 'POTENZA', 'PRATO', 'RAGUSA', 'RAVENNA',
+       'REGGIO DI CALABRIA', "REGGIO NELL'EMILIA", 'RIETI', 'RIMINI', 'ROMA', 'ROVIGO', 'SALERNO', 'SASSARI', 'SAVONA', 'SIENA',
+       'SIRACUSA', 'SONDRIO', 'TARANTO', 'TERAMO', 'TERNI', 'TORINO', 'TRAPANI', 'TRENTO', 'TREVISO', 'TRIESTE', 'UDINE', 'VARESE',
+       'VENEZIA', 'VERBANO-CUSIO-OSSOLA', 'VERCELLI', 'VERONA', 'VIBO VALENTIA', 'VICENZA', 'VITERBO']
+
+#for all files
+for data_file in os.listdir("Data/Female"):
+    src = data_file[0: -4]
+    if (src in arr or src[-4:]== "_mun"):
+        print "REGPROV "+ data_file
+    else:
+        dst = src + "_mun.csv"
+        print "MUN "+data_file
+        os.rename("Data/Female/" + data_file, "Data/Female/" + dst)
