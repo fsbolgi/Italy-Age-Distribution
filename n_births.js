@@ -1,31 +1,78 @@
 var new_borns,
     min_born,
     max_born,
+    base_line_births = 0,
     year_scaled_n_births,
     value_scaled_n_births;
 
 function move_index_n_births(curr_year) {
     var scale_x = d3.scale.linear()
         .domain([base, base + p - 1])
-        .range([60-year_scaled_n_births, 260-year_scaled_n_births]);
+        .range([60 - year_scaled_n_births, 260 - year_scaled_n_births]);
     var pos_x_index = scale_x(curr_year);
 
     var scale_y = d3.scale.linear()
-        .domain([min_born, max_born])
-        .range([390-value_scaled_n_births, 270-value_scaled_n_births]);
+        .domain([base_line_births, max_born])
+        .range([430 - value_scaled_n_births, 305 - value_scaled_n_births]);
     var pos_y_index = scale_y(new_borns[curr_year - base]);
 
     d3.selectAll("#index_n_births").attr("transform", "translate(" + pos_x_index + "," + pos_y_index + ")");
+
+    current_year_births.transition().text(function () {
+        return curr_year;
+    });
+    current_value_births.transition().text(function () {
+        return number_reduction(axis_approx(new_borns[curr_year - base]));
+    });
 }
 
 function draw_n_births_label() {
-    var n_births_label = svg_little_charts.append("text") // insert grouping label
+    svg_little_charts.append("text") // insert grouping label
         .text("NUMBER OF BIRTHS PER YEAR:")
-        .attr("dx", 30)
-        .attr("dy", 245)
-        .attr("class", "info_text");
+        .attr("dx", 50)
+        .attr("dy", 285)
+        .attr("class", "info_text")
+        .transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
 
-    n_births_label.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
+    svg_little_charts.append("text") // insert grouping label
+        .text("YEAR:")
+        .attr("dx", 70)
+        .attr("dy", 470)
+        .attr("class", "info_text")
+        .style("font-size", 11 + "px")
+        .transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
+
+    var current_year = svg_little_charts.append("text") // insert grouping label
+        .attr("dx", 110)
+        .attr("dy", 470)
+        .attr("class", "info_text")
+        .style("font-size", 11 + "px");
+    current_year.transition().delay(500).duration(1000)
+        .text(function () {
+            return 1982;
+        })
+        .style("opacity", 1);
+
+    svg_little_charts.append("text") // insert grouping label
+        .text("VALUE:")
+        .attr("dx", 170)
+        .attr("dy", 470)
+        .attr("class", "info_text")
+        .style("font-size", 11 + "px")
+        .transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
+
+    var current_value = svg_little_charts.append("text") // insert grouping label
+        .attr("dx", 220)
+        .attr("dy", 470)
+        .attr("class", "info_text")
+        .style("font-size", 11 + "px");
+    current_value.transition().delay(500).duration(1000)
+        .text(function () {
+            return "600K";
+        })
+        .style("opacity", 1); // on enter label transition
+
+    return [current_year, current_value];
 }
 
 function draw_n_births() {
@@ -60,16 +107,20 @@ function draw_n_births() {
                 .domain([base, base + p - 1])
                 .range([60, 260]);
 
+            if (base_line_births != 0) {
+                base_line_births = min_born;
+            }
+
             var scale_y = d3.scale.linear()
-                .domain([min_born, max_born])
-                .range([390, 275]);
+                .domain([base_line_births, max_born])
+                .range([430, 305]);
 
             var area = d3.svg.area()
                 .x(function (d, i) {
                     return scale_x(years_array[i]);
                 })
-                .y0(395)
-                .y1(395)
+                .y0(435)
+                .y1(435)
                 .interpolate("cardinal");
 
             if (new_time_lenght > 0) {
@@ -95,10 +146,10 @@ function draw_n_births() {
             var c = svg_little_charts.append("circle") // draw magnifier icon
                 .attr("id", "index_n_births")
                 .attr("class", "index_charts");
-            c.transition().attr("cx", year_scaled_n_births)
+            c.transition().delay(800).duration(100)
+                .attr("cx", year_scaled_n_births)
                 .attr("cy", value_scaled_n_births)
-                .transition().delay(800).duration(100).style("opacity", 1);
-
+                .style("opacity", 1);
         });
     });
 }
@@ -134,7 +185,7 @@ function draw_births_x() {
         .attr("dx", function (d, i) {
             return 80 + 100 * i;
         })
-        .attr("dy", 407)
+        .attr("dy", 447)
         .attr("class", "births_x");
 
     births_x.transition() // transition on enter
@@ -146,7 +197,13 @@ function draw_births_x() {
 }
 
 function draw_births_y() {
-    var y_axis = [max_born, (max_born - min_born) / 2, min_born];
+    var approx_max = axis_approx(max_born);
+
+    if (base_line_births != 0) {
+        base_line_births = min_born;
+    }
+    var approx_min = axis_approx(base_line_births);
+    var y_axis = [number_reduction(approx_max), number_reduction((approx_max + approx_min) / 2), number_reduction(approx_min)];
 
     var births_y = svg_little_charts.selectAll(".births_y") // insert ages labels
         .data(y_axis);
@@ -154,7 +211,7 @@ function draw_births_y() {
         .append("text")
         .attr("dx", 55)
         .attr("dy", function (d, i) {
-            return 210 + 60 * (i + 1);
+            return 250 + 62 * (i + 1);
         })
         .attr("class", "births_y");
 

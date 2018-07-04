@@ -1,15 +1,12 @@
 function create_grid_histo(svg_histo, pos, max, xScale) {
 
-    var n_digits = max.toString().length;
-    var first_digit = ('' + max)[0];
-    var second_digit = ('' + max)[1];
-    var num = Number(first_digit + second_digit);
-    var approx = num * Math.pow(10, (n_digits - 2));
+    var approx = axis_approx(max);
+
     var n_lines = 5;
 
     var x_line = new Array(n_lines);
     for (i = 0; i < n_lines; i++) {
-        x_line[i] = xScale(approx / n_lines * (i + 1));
+        x_line[i] = xScale(Math.round(approx / n_lines * (i + 1)*10)/10);
     }
 
     var vertical = svg_histo.selectAll(".grid_line")
@@ -17,7 +14,7 @@ function create_grid_histo(svg_histo, pos, max, xScale) {
 
     vertical.enter()
         .append("line")
-        .attr("x1", function (d) {
+        .attr("x1", function () {
             if (pos == "left") {
                 return width / 2;
             } else {
@@ -25,7 +22,7 @@ function create_grid_histo(svg_histo, pos, max, xScale) {
             }
         })
         .attr("y1", 9)
-        .attr("x2", function (d) {
+        .attr("x2", function () {
             if (pos == "left") {
                 return width / 2;
             } else {
@@ -67,9 +64,6 @@ function create_grid_histo(svg_histo, pos, max, xScale) {
             }
         })
         .attr("dy", 550)
-        .text(function (d, i) {
-            return (approx / n_lines * (i + 1));
-        })
         .attr("class", "grid_label");
 
     label.transition().delay(800).duration(1000)
@@ -82,7 +76,16 @@ function create_grid_histo(svg_histo, pos, max, xScale) {
             }
         })
         .text(function (d, i) {
-            return Math.round((approx / n_lines) * (i + 1)*10)/10;
+            var true_value = (approx / n_lines) * (i + 1);
+            var postfix = "";
+            if (true_value >= 1000000) {
+                true_value = true_value /1000000;
+                postfix = "M";
+            }else if (true_value >= 1000) {
+                true_value = true_value /1000;
+                postfix = "K";
+            }
+            return Math.round(true_value*10)/10 + postfix;
         });
 
     label.exit().transition().duration(500).remove(); // transition on exit
