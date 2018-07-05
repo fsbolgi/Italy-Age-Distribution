@@ -107,3 +107,10 @@ a:active {
         width: 100%;
     }
 }
+@media (max-width: 1350px) {
+
+    .header {
+        justify-content: left;
+        align-items: left;
+    }
+}
