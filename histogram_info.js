@@ -1,3 +1,7 @@
+function set_col_name(new_col_name) {
+    col_name = new_col_name;
+}
+
 function draw_histo_label() { // insert  age values and bars' tooltip
 
     for (i = 0; i <= 100; i++) { // create an array with values from 0 to 99

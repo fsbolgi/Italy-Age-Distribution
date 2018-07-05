@@ -1,20 +1,3 @@
-var mySound;
-
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function () {
-        this.sound.play();
-    }
-    this.stop = function () {
-        this.sound.pause();
-    }
-}
-
 function draw_group_ages() {
 
     var group_options = [1, 2, 5, 10, 20, 25]; //grouping options
@@ -27,7 +10,7 @@ function draw_group_ages() {
             return d;
         })
         .attr("dx", function (d, i) {
-            var x = 280 + i * 20
+            var x = 420 + i * 20
             return (d > 10) ? x + 6 * (i - 3) : x;
         })
         .attr("dy", 55)
@@ -47,7 +30,7 @@ function draw_group_ages() {
 
     var label_group = svgB_header.append("text") // insert grouping label
         .text("GROUP AGES IN:")
-        .attr("dx", 290)
+        .attr("dx", 440)
         .attr("dy", 35)
         .attr("class", "info_text");
 

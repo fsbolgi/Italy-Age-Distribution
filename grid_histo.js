@@ -89,7 +89,4 @@ function create_grid_histo(svg_histo, pos, max, xScale) {
         });
 
     label.exit().transition().duration(500).remove(); // transition on exit
-
-    var line_top_h = svg_histo.append("line");
-
 }

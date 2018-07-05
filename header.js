@@ -1,29 +1,28 @@
 var svgA_header = d3.select(".headerA_svg"),
     svgB_header = d3.select(".headerB_svg"),
-    place_x = 10,
+    place_x = 30,
     place_y = 70; // select correct svg
 
 draw_group_ages();
 draw_magnifier();
 insert_info_tooltip ();
 
-
 svgA_header.append("text")
     .text("AGE DISTRIBUTION")
-    .attr("dx", 10)
+    .attr("dx", place_x)
     .attr("dy", 30)
     .attr("class", "header_label");
 
 var place = svgA_header.append("text")
     .text("ITALIA")
-    .attr("dx", 10)
+    .attr("dx", place_x)
     .attr("dy", place_y)
     .attr("class", "places_text")
     .attr("id", "places_text_0")
     .on("click", function () {
         zoom_out(0);
     });
-place_x = 60;
+place_x = 80;
 
 place.transition().duration(1000).style("opacity", 1);
 

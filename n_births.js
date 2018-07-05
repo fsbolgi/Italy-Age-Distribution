@@ -96,8 +96,8 @@ function draw_n_births() {
                 return d;
             });
 
-            draw_births_x();
-            draw_births_y();
+            draw_line_chart_x("births_x", 447);
+            draw_line_chart_y(max_born, min_born, base_line_births, "births_y", 315)
 
             for (i = 0; i < p; i++) { // create an array with values from 1952 or from 1982
                 years_array[i] = i + base;
@@ -127,7 +127,6 @@ function draw_n_births() {
                 d3.selectAll(".births_chart").remove();
                 svg_little_charts.append("path")
                     .datum(new_borns)
-                    .attr("fill", "#e7e5cb")
                     .attr("class", "births_chart")
                     .attr("d", area);
                 new_time_lenght--;
@@ -154,11 +153,6 @@ function draw_n_births() {
     });
 }
 
-function type(d) {
-    d.value = +d[col_name];
-    return d;
-}
-
 function compute_new_born(data) { // compute the max of the whole file
     var save_col_name = col_name;
     var new_borns = new Array(p);
@@ -173,52 +167,4 @@ function compute_new_born(data) { // compute the max of the whole file
     }
     col_name = save_col_name;
     return new_borns;
-}
-
-function draw_births_x() {
-    var x_axis = [base, base + p / 2, base + p - 1];
-
-    var births_x = svg_little_charts.selectAll(".births_x") // insert ages labels
-        .data(x_axis);
-    births_x.enter()
-        .append("text")
-        .attr("dx", function (d, i) {
-            return 80 + 100 * i;
-        })
-        .attr("dy", 447)
-        .attr("class", "births_x");
-
-    births_x.transition() // transition on enter
-        .duration(800)
-        .text(function (d, i) {
-            return x_axis[i];
-        })
-        .style("opacity", 1);
-}
-
-function draw_births_y() {
-    var approx_max = axis_approx(max_born);
-
-    if (base_line_births != 0) {
-        base_line_births = min_born;
-    }
-    var approx_min = axis_approx(base_line_births);
-    var y_axis = [number_reduction(approx_max), number_reduction((approx_max + approx_min) / 2), number_reduction(approx_min)];
-
-    var births_y = svg_little_charts.selectAll(".births_y") // insert ages labels
-        .data(y_axis);
-    births_y.enter()
-        .append("text")
-        .attr("dx", 55)
-        .attr("dy", function (d, i) {
-            return 250 + 62 * (i + 1);
-        })
-        .attr("class", "births_y");
-
-    births_y.transition() // transition on enter
-        .duration(800)
-        .text(function (d, i) {
-            return y_axis[i];
-        })
-        .style("opacity", 1);
 }

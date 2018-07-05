@@ -75,7 +75,7 @@ function draw_tot_pop_label() {
         .style("font-size", 11 + "px");
     current_value.transition().delay(500).duration(1000)
         .text(function () {
-            return "600K";
+            return "56M";
         })
         .style("opacity", 1); // on enter label transition
 
@@ -105,8 +105,8 @@ function draw_tot_pop() {
                 return d;
             });
 
-            draw_pop_x();
-            draw_pop_y();
+            draw_line_chart_x("pop_x", 192);
+            draw_line_chart_y(max_pop, min_pop, base_line_tot, "pop_y", 55);
 
             for (i = 0; i < p; i++) { // create an array with values from 1952 or from 1982
                 years_array[i] = i + base;
@@ -136,7 +136,6 @@ function draw_tot_pop() {
                 d3.selectAll(".tot_pop_chart").remove();
                 path_tot = svg_little_charts.append("path")
                     .datum(tot_pop)
-                    .attr("fill", "#e7e5cb")
                     .attr("class", "tot_pop_chart")
                     .attr("d", area);
                 new_time_lenght--;
@@ -186,18 +185,18 @@ function compute_tot_pop(data) { // compute the max of the whole file
     return tot_pop;
 }
 
-function draw_pop_x() {
+function draw_line_chart_x(class_name, position) {
     var x_axis = [base, base + p / 2, base + p - 1];
 
-    var pop_x = svg_little_charts.selectAll(".pop_x") // insert ages labels
+    var pop_x = svg_little_charts.selectAll("."+class_name) // insert ages labels
         .data(x_axis);
     pop_x.enter()
         .append("text")
         .attr("dx", function (d, i) {
             return 80 + 100 * i;
         })
-        .attr("dy", 192)
-        .attr("class", "pop_x");
+        .attr("dy", position)
+        .attr("class", class_name);
 
     pop_x.transition() // transition on enter
         .duration(800)
@@ -207,24 +206,24 @@ function draw_pop_x() {
         .style("opacity", 1);
 }
 
-function draw_pop_y() {
-    var approx_max = axis_approx(max_pop);
+function draw_line_chart_y(max, min, base_line, class_name, position) {
+    var approx_max = axis_approx(max);
 
-    if (base_line_tot != 0) {
-        base_line_tot = min_pop;
+    if (base_line != 0) {
+        base_line = min;
     }
-    var approx_min = axis_approx(base_line_tot);
+    var approx_min = axis_approx(base_line);
     var y_axis = [number_reduction(approx_max), number_reduction((approx_max + approx_min) / 2), number_reduction(approx_min)];
 
-    var pop_y = svg_little_charts.selectAll(".pop_y") // insert ages labels
+    var pop_y = svg_little_charts.selectAll("."+class_name) // insert ages labels
         .data(y_axis);
     pop_y.enter()
         .append("text")
         .attr("dx", 55)
         .attr("dy", function (d, i) {
-            return 55 + 60 * i;
+            return position + 60 * i;
         })
-        .attr("class", "pop_y");
+        .attr("class", class_name);
 
     pop_y.transition() // transition on enter
         .duration(800)
