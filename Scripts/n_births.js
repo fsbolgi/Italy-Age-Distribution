@@ -28,7 +28,7 @@ function move_index_n_births(curr_year) {
 
 function draw_n_births_label() {
     svg_little_charts.append("text") // insert grouping label
-        .text("NUMBER OF BIRTHS PER YEAR:")
+        .text("NUMBER OF BIRTHS PER YEAR")
         .attr("dx", 50)
         .attr("dy", 285)
         .attr("class", "info_text")

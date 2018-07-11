@@ -14,7 +14,7 @@ function draw_magnifier() {
         .attr("dx", 60)
         .attr("dy", 40)
         .text("ZOOM OUT")
-        .attr("class", "info_text");
+        .attr("class", "info_text_header");
 
     magnifier_circle.transition().duration(1200).style("opacity", 1); // transitions on enter
     magnifier_line.transition().duration(1200).style("opacity", 1);

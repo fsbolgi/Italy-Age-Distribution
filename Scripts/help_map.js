@@ -39,7 +39,7 @@ function compute_bounding_box(element) {
 
 function scale_map() {
     var box = compute_bounding_box(previous_el);
-    return Math.min(size_svg * 0.92 / box[0], size_svg * 0.92 / box[1]);
+    return Math.min(size_svg * 0.88 / box[0], size_svg * 0.88 / box[1]);
 }
 
 function translate_map() {

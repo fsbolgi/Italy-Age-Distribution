@@ -12,7 +12,7 @@ d3.select("body") // catch left and right arrow events
                 move_index_n_births(year);
                 text_cursor.text(year);
                 set_col_name("A_" + year);
-                compute_mean(curr_el, element.features, 0);
+                compute_mean(curr_el, element.features);
                 draw_histo(file_nameA, svg_histoA, "left");
                 draw_histo(file_nameB, svg_histoB, "right");
             }
@@ -25,7 +25,7 @@ d3.select("body") // catch left and right arrow events
                 move_index_n_births(year);
                 text_cursor.text(year);
                 set_col_name("A_" + year);
-                compute_mean(curr_el, element.features, 0);
+                compute_mean(curr_el, element.features);
                 draw_histo(file_nameA, svg_histoA, "left");
                 draw_histo(file_nameB, svg_histoB, "right");
             }

@@ -35,7 +35,7 @@ function move_index_tot_pop(curr_year) {
 
 function draw_tot_pop_label() {
     svg_little_charts.append("text") // insert grouping label
-        .text("TOTAL POPULATION PER YEAR:")
+        .text("TOTAL POPULATION PER YEAR")
         .attr("dx", 50)
         .attr("dy", 30)
         .attr("class", "info_text")
@@ -49,7 +49,7 @@ function draw_tot_pop_label() {
         .style("font-size", 11 + "px")
         .transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
 
-    var current_year = svg_little_charts.append("text") // insert grouping label
+    var current_year = svg_little_charts.append("text")
         .attr("dx", 110)
         .attr("dy", 220)
         .attr("class", "info_text")
@@ -151,7 +151,7 @@ function draw_tot_pop() {
             value_scaled_tot_pop = scale_y(tot_pop[curr_year - base]);
 
             d3.selectAll("#index_tot_pop").remove();
-            var c = svg_little_charts.append("circle") // draw magnifier icon
+            var c = svg_little_charts.append("circle")
                 .attr("id", "index_tot_pop")
                 .attr("class", "index_charts");
             c.transition().delay(800).duration(100)

@@ -10,7 +10,7 @@ function draw_group_ages() {
             return d;
         })
         .attr("dx", function (d, i) {
-            var x = 420 + i * 20
+            var x = 430 + i * 20
             return (d > 10) ? x + 6 * (i - 3) : x;
         })
         .attr("dy", 55)
@@ -32,7 +32,7 @@ function draw_group_ages() {
         .text("GROUP AGES IN:")
         .attr("dx", 440)
         .attr("dy", 35)
-        .attr("class", "info_text");
+        .attr("class", "info_text_header");
 
     label_group.transition().delay(500).duration(1000).style("opacity", 1); // on enter label transition
     options_name.transition().delay(500).duration(1000).style("opacity", 1); // on enter values transition

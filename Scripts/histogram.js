@@ -40,10 +40,6 @@ function draw_histo(path_data, svg_histo, pos) {
         }
         draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height, tot_pop, ("rect_histo_" + pos));
     });
-    if (level > 0) {
-        draw_skyline("Data/Male/ITALIA.csv", svg_histoA, "left");
-        draw_skyline("Data/Female/ITALIA.csv", svg_histoB, "right");
-    }
 }
 
 function compute_max(data) { // compute the max of the whole file
@@ -86,7 +82,7 @@ function compute_grouping(data) {
 }
 
 function draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height, tot_pop, class_r) {
-    var rect = svg_histo.selectAll("."+class_r)
+    var rect = svg_histo.selectAll("." + class_r)
         .data(data_grouped);
 
     rect.enter() // insert histogram bars
@@ -110,7 +106,11 @@ function draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height,
         })
         .style("fill", function (d, i) {
             if (i == mean) {
-                return (pos == "left") ? "#265073" : "#f98699";
+                if (class_r.substring(5, 10) == "hover") {
+                    return (pos == "left") ? "#152837" : "#e67364";
+                } else {
+                    return (pos == "left") ? "#265073" : "#f07e6f";
+                }
             }
         })
         .attr("width", function (d) {
@@ -161,14 +161,10 @@ function compute_mean_age(data, tot_pop) {
     var tot_pop_weighted = d3.sum(data, function (d, i) {
         return d.value * (ages_array[i] + 1);
     });
-    return Math.round((tot_pop_weighted / tot_pop - 1) / group_by);
+    return Math.floor((tot_pop_weighted / tot_pop - 1) / group_by);
 }
 
 function zoom_in_histo(curr_el) {
-    if (level >= 0) {
-        draw_skyline("Data/Male/ITALIA.csv", svg_histoA, "left");
-        draw_skyline("Data/Female/ITALIA.csv", svg_histoB, "right");
-    }
     year_modification = false;
     var el_name = extract_properties(curr_el)[0].toUpperCase();
     if (el_name.indexOf("/") != -1) {
@@ -177,21 +173,11 @@ function zoom_in_histo(curr_el) {
     if (level == 2) { // if there's a mun with the same name of a province
         el_name = el_name + "_mun";
     }
-    var url = "Data/Male/" + el_name + ".csv"; // check if
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    if (http.status != 404) {
-        file_nameA = "Data/Male/" + el_name + ".csv";
-        file_nameB = "Data/Female/" + el_name + ".csv";
-        draw_histo(file_nameA, svg_histoA, "left");
-        draw_histo(file_nameB, svg_histoB, "right");
-    } else {
-        svg_map.append("text")
-            .text("DATA NOT FOUND")
-            .attr("transform", "translate(" + 170 + "," + 20 + ")")
-            .attr("class", "data_not_found");
-    }
+
+    file_nameA = "Data/Male/" + el_name + ".csv";
+    file_nameB = "Data/Female/" + el_name + ".csv";
+    draw_histo(file_nameA, svg_histoA, "left");
+    draw_histo(file_nameB, svg_histoB, "right");
 }
 
 function draw_hover_histo(path_data, svg_histo, pos) {
@@ -199,7 +185,7 @@ function draw_hover_histo(path_data, svg_histo, pos) {
     if (level > 0 && (y < 1982 || y > 2017)) {
     } else {
         d3.csv(path_data, type, function (error, data) {
-            if(!error) {
+            if (!error) {
 
                 var data_grouped = compute_grouping(data);
 
@@ -215,51 +201,8 @@ function draw_hover_histo(path_data, svg_histo, pos) {
 
                 var mean = compute_mean_age(data, tot_pop);
 
-                draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height, tot_pop,  ("rect_hover_histo_" + pos));
+                draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height, tot_pop, ("rect_hover_histo_" + pos));
             }
         });
     }
-}
-
-function draw_skyline(prev_place, svg_histo, pos) {
-    /*d3.csv(prev_place, type, function (error, data) {
-
-        var data_grouped = compute_grouping(data);
-
-        var xScale = d3.scale.linear()
-            .domain([0, curr_max])
-            .range([0, width / 2 - 45]);
-
-        var skyline = d3.svg.line()
-            .x(function (d, i) {
-                if (pos == "left") {
-                    return (width / 2 - (xScale(d)));
-                } else {
-                    return 25 +xScale(d);
-                }
-            })
-            .y(function (d, i) {
-                return i * (height - 20) / data_grouped.length + 10;
-            });
-
-        if (do_twice >0) {
-            svg_histo.append("path")
-                .datum(data_grouped)
-                .attr("class", "skyline")
-                .style("stroke", function () {
-                    return (pos == "left") ? "#265073" : "#f98699";
-                })
-                .attr("d", skyline);
-            do_twice--;
-        }
-        skyline.x(function (d, i) {
-            if (pos == "left") {
-                console.log((width / 2 - (xScale(d))));
-                return (width / 2 - (xScale(d)));
-            } else {
-                return 25 +xScale(d);
-            }
-        });
-        svg_histo.selectAll(".skyline").transition().duration(1200).attr("d", skyline);
-    });*/
 }
