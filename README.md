@@ -75,8 +75,5 @@ tooltip cointaing some information to the mouse position.
 
 This project is licensed under the MIT License.
 
-The data used was taken from the istat database. 
-For the provinces and municipalities are available the data from 1982 to 2017, while for the regions it is also possible to see the reconstructed population from 1952 to 1981 and the forecasts until 2065.
-
 
 
