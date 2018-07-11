@@ -8,14 +8,14 @@
 }
 .header_label {
     font-family: sans-serif;
-    fill: #696630;
+    fill: #f2f2f2;
     font-size: 20pt;
 }
 .tooltip {
     line-height: 1;
     padding: 4px;
-    background: #efeedc;
-    color: #696630;
+    background: #f2f2f2;
+    color: #595959;
     border-radius: 2px;
     text-align: left;
     font: 12px sans-serif;
@@ -25,44 +25,50 @@
 }
 .info_button {
     r: 16;
-    stroke: #696630;
+    stroke: #f2f2f2;
     stroke-width: 1.3px;
     fill: transparent;
     cursor: pointer;
     opacity: 0;
 }
 .info_i {
-    fill: #696630;
+    fill: #f2f2f2;
     font-family: serif;
     font-size: 16pt;
     opacity: 0;
 }
 .text_clickable_grp, .text_clickable_grid {
     font-family: sans-serif;
-    fill: #696630;
+    fill: #f2f2f2;
     font-size: 10pt;
     width: 10px;
     opacity: 0;
     cursor: pointer;
 }
+.text_clickable_grid {
+    fill: #595959;
+}
 .magnifier_circle {
     r: 9;
-    stroke: #696630;
+    stroke: #f2f2f2;
     stroke-width: 3px;
     fill: transparent;
     opacity: 0;
 }
 .magnifier_line {
-    stroke: #696630;
+    stroke: #f2f2f2;
     stroke-width: 3px;
     opacity: 0;
 }
-.info_text {
+.info_text, .info_text_header {
     font-family: sans-serif;
-    fill: #696630;
+    fill: #595959;
     font-size: 10pt;
     width: 10px;
     opacity: 0;
+}
+.info_text_header {
+    fill: #f2f2f2;
 }
 .magnifier_area {
     fill: transparent;
@@ -79,12 +85,12 @@
 .little_charts_svg {
     width: 300px;
     height: 650px;
-    background-color: #d7d4a8;
+    background-color: #e6e6e6;
 }
 .births_chart, .tot_pop_chart, .skyline{
-    stroke: #696630;
+    stroke: #595959;
     stroke-width: 1.5px;
-    fill: #e7e5cb;
+    fill: #f2f2f2;
 }
 .skyline{
     stroke-width: 1.5px;
@@ -94,13 +100,13 @@
     text-anchor: end;
     font-size: 7pt;
     font-family: sans-serif;
-    fill: #696630;
+    fill:  #595959;
     opacity: 0;
 }
 .index_charts {
     r: 4;
     fill: white;
-    stroke: #696630;
+    stroke:  #595959;
     stroke-width: 1.5px;
     opacity: 0;
 }
@@ -109,7 +115,7 @@
     font-size: 11pt;
     font-family: sans-serif;
     opacity: 0;
-    fill: #696630;
+    fill: #f2f2f2;
     cursor: pointer;
 }
 .map{
@@ -121,7 +127,7 @@
 }
 .map_svg {
     width: 550px;
-    height: 600px;
+    height: 620px;
 }
 .background_map {
     fill: transparent;
@@ -129,19 +135,14 @@
 .regions, .provinces, .municipalities{
     fill: #f7f6ee;
     stroke: #FFFFFF;
-    opacity: 0.7;
+    opacity: 1;
     cursor: pointer;
 }
 .regions_label,.provinces_label, .municipalities_label{
-    fill: #464420;
+    fill: #595959;
     font-family: sans-serif;
     font-size: 14pt;
     text-anchor: middle;
-}
-.data_not_found {
-    font-size: 16pt;
-    font-family: sans-serif;
-    fill: #696630;
 }
 .timeline {
     align-items: center;
@@ -155,10 +156,21 @@
     width: 600px;
     height: 70px;
 }
+.play {
+    fill: #595959;
+    cursor: pointer;
+    opacity: 0;
+}
+.pause {
+    stroke: #595959;
+    stroke-width: 3px;
+    opacity: 0;
+    cursor: pointer;
+}
 .year_label{
     font-size: 7pt;
     font-family: sans-serif;
-    fill: #696630;
+    fill: #595959;
     opacity: 0;
 }
 .epoc_label {
@@ -169,12 +181,12 @@
 .div_cursor {
     font-size: 11pt;
     font-family: sans-serif;
-    color: #696630;
+    color: #595959;
     background-color: transparent;
 }
 .cursor {
     fill: white;
-    stroke: #696630;
+    stroke: #595959;
     stroke-width: 1.2px;
     width: 8px;
     height: 20px;
@@ -199,7 +211,7 @@
     z-index: 1;
 }
 .rect_histo_right {
-    fill: pink;
+    fill: #fbccbf;
     opacity: 0.7;
     stroke: #FFFFFF;
     stroke-width: 0.8px;
@@ -207,7 +219,7 @@
     z-index: 1;
 }
 .rect_hover_histo_left {
-    fill: #2b506e;
+    fill: #396a93;
     opacity: 0.7;
     stroke: #FFFFFF;
     stroke-width: 0.8px;
@@ -215,7 +227,7 @@
     z-index: 1;
 }
 .rect_hover_histo_right{
-    fill: #ff6680;
+    fill: #fa9d91;
     opacity: 0.7;
     stroke: #FFFFFF;
     stroke-width: 0.8px;
@@ -223,14 +235,15 @@
     z-index: 1;
 }
 .grid_label {
-    fill: #bfba73;
+    fill: #b3b3b3;
     font-family: sans-serif;
     font-size: 8pt;
     text-anchor: middle;
     opacity: 0;
 }
 .grid_line {
-    stroke: #e7e5cb;
+    stroke: #cccccc;
+    stroke-width: 0.5px;
     opacity: 0;
     position: absolute;
     z-index: -1;
