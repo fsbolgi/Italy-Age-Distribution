@@ -50,7 +50,7 @@ function dragged() {
     move_index_n_births(curr_year);
 
     set_col_name("A_" + curr_year);
-    compute_mean(curr_el, element.features, 0);
+    compute_mean(curr_el, element.features);
 
     draw_histo(file_nameA, svg_histoA, "left");
     draw_histo(file_nameB, svg_histoB, "right");
@@ -88,7 +88,7 @@ function disable_time_section(disable) {
         .duration(1000)
         .style("fill", function (d, i) {
             if (d < 1982 || d > 2017) {
-                return disable ? "#e0e0d1" : color_scale[i];
+                return disable ? "#cccccc" : color_scale[i];
             } else {
                 return color_scale[i];
             }
@@ -97,18 +97,18 @@ function disable_time_section(disable) {
     past.transition()
         .duration(1000)
         .style("fill", function () {
-            return disable ? "#e0e0d1" : "orange";
+            return disable ? "#b3b3b3" : "#f3b748";
         });
     future.transition()
         .duration(1000)
         .style("fill", function () {
-            return disable ? "#e0e0d1" : "blue";
+            return disable ? "#b3b3b3" : "#388393";
         });
     years_name.transition()
         .duration(1000)
         .style("fill", function (d, i) {
             if (d < 1982 || d > 2017) {
-                return disable ? "#e0e0d1" : color_scale[i];
+                return disable ? "#b3b3b3" : color_scale[i];
             } else {
                 return color_scale[i];
             }
