@@ -25,7 +25,7 @@ function draw_histo_label() { // insert  age values and bars' tooltip
             }
         })
         .attr("dy", function (d, i) {
-            return 5.3 * i + 17;
+            return 555 - (5.3 * i + 17);
         })
         .attr("class", "year_label");
 

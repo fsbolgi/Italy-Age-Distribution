@@ -125,7 +125,7 @@ function draw_rectangles(svg_histo, pos, data_grouped, mean, xScale, bar_height,
             }
         })
         .attr("y", function (d, i) {
-            return i * (height - 20) / data_grouped.length + 10;
+            return 540 - (i * (height - 20) / data_grouped.length + 10);
         });
 
     rect.exit().transition().duration(150).remove(); // transition on exit
